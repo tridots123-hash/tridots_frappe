@@ -1,0 +1,219 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<style>
+.table th,
+.table td {
+  vertical-align: middle;
+  font-size: 14px;
+  padding: 12px;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f0f8ff;
+}
+
+thead th {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bg-gradient {
+  background: linear-gradient(90deg, #0d6efd, #6610f2);
+}
+
+</style>
+<div class="container-fuild">
+<div class="container-fluid mb-1">
+  <div class="d-flex justify-content-center align-items-center">
+      <h3 class="text-primary fw-bold mb-4">📝 Student Payment Registor</h3>
+  </div>
+</div>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <button class="btn btn-primary" onclick="window.location.href='/home_work'">Go Back</button>
+    <div class="d-flex justify-content-end align-items-center mb-3 gap-4">
+    <input id="search-box" type="text" class="form-control w-50 mr-2" placeholder="Search...">
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#taskModal">+ Add</button>
+    </div>
+</div>
+<div class="table-responsive rounded-4 shadow mt-4">
+  <table class="table table-hover table-bordered align-middle mb-0">
+    <thead class="bg-gradient text-white text-center" style="background: linear-gradient(90deg, #0d6efd, #6610f2);">
+      <tr>
+        <th style="width: 5%;">S.No</th>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Class</th>
+        <th>Phone</th>
+        <th>Email ID</th>
+        <th>Fee Amount</th>
+        <th>Month</th>
+        <th>payment ID</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="student-records" class="text-center">
+    </tbody>
+  </table>
+</div>
+</div>
+<div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="p-4">
+<div style="text-align: end;">
+<i class="bi bi-x-circle-fill" data-bs-dismiss="modal" aria-label="Close" style="font-size: 20px; cursor: pointer; color: red; font-weight: 700;"></i>
+</div>
+<form id="student_registor">
+    <h4 class="mb-4 text-center"><i class="bi bi-credit-card text-primary"></i> Payment Registor</h4>
+    <div class="row g-3">
+      <div class="col-md-6 mb-2">
+        <label for="student_id" class="form-label">Student ID</label>
+        <input type="text" id="student_id" class="form-control" placeholder="Enter Your Student ID">
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="student_name" class="form-label">Student Name</label>
+        <input type="text" id="student_name" class="form-control" placeholder="Enter Your Student Name">
+      </div>
+       <div class="col-md-6 mb-2">
+        <label for="month_data" class="form-label">Fee Month</label>
+        <select id="month_data" class="form-control">
+          <option selected disabled>-- Select Month --</option>
+          <option>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="phone_no" class="form-label">Phone No</label>
+        <input type="tel" id="phone_no" class="form-control" placeholder="Enter Your Phone No">
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="email_id" class="form-label">Email</label>
+        <input type="email" id="email_id" class="form-control" placeholder="Enter Your Email">
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="class_section" class="form-label">Class</label>
+        <select id="class_section" class="form-control" required>
+              <option selected disabled>--select Your Class--</option>
+              <option value="(10th-A)">(10th-A)</option>
+              <option value="(10th-B)">(10th-B)</option>
+              <option value="(10th-C)">(10th-C)</option>
+        </select>
+      </div>
+      <div class="col-12 mb-2">
+        <label for="fee_amount" class="form-label">Fee Amount</label>
+        <input type="text" id="fee_amount" class="form-control" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" placeholder="Enter Your Fee Amount">
+      </div>
+      <div class="col-12 mb-3">
+        <label class="form-label d-block">Payment Status</label>
+        <div class="d-flex flex-wrap gap-3">
+        <div class="form-check d-flex align-items-center mr-1">
+          <input class="form-check-input me-2" type="radio" name="payment_status" id="status_pending" value="Pending">
+          <label class="form-check-label fw-semibold" for="status_pending">Pending</label>
+        </div>     
+        <div class="form-check d-flex align-items-center mr-1">
+          <input class="form-check-input me-2" type="radio" name="payment_status" id="status_success" value="Paid">
+          <label class="form-check-label fw-semibold" for="status_success">Paid</label>
+        </div>
+        <div class="form-check d-flex align-items-center mr-1">
+          <input class="form-check-input me-2" type="radio" name="payment_status" id="status_cancel" value="Cancel">
+          <label class="form-check-label fw-semibold" for="status_cancel">Cancel</label>
+        </div>
+     </div>
+     </div>
+    </div>
+    <div class="d-grid mt-4 ">
+       <button type="submit" class="btn btn-success w-100">Submit</button>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<script>
+    $("#search-box").on('input', function() {
+      const query = $(this).val();
+      frappe.call({
+        method:"frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor",
+        args: {query},
+        callback: function(r) {
+          
+        }
+      })
+    })
+    document.addEventListener("DOMContentLoaded", fetchPaymentRecords);
+    document.getElementById("student_registor").addEventListener("submit", function (e) {
+        e.preventDefault()
+        const StudentId = document.getElementById("student_id").value;
+        const StudentName = document.getElementById("student_name").value;
+        const Month = document.getElementById("month_data").value;
+        const Class = document.getElementById("class_section").value;
+        const Phone = document.getElementById("phone_no").value;
+        const Email = document.getElementById("email_id").value;
+        const FeeAmount = document.getElementById("fee_amount").value;
+        const Status = document.querySelector('input[name="payment_status"]:checked').value;
+        try {
+           frappe.call({
+            method: "frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor",
+            args: {
+                student_id: StudentId,
+                student_name: StudentName,
+                month: Month,
+                class_section: Class,
+                phone_no: Phone,
+                email: Email,
+                fee_amount: FeeAmount,
+                status: Status
+            },
+            callback: function (r) {
+                frappe.msgprint(r.message.message)
+                location.reload();
+                e.target.reset();
+            }
+           })
+        } catch (err) {
+            frappe.throw(err)
+        }
+    })
+    function fetchPaymentRecords() {
+        return frappe.call({
+            method: "frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.get_pay_data"
+        }).then((r) => {
+            const pay_registor = r.message
+            $.each(pay_registor, function(index, m) {
+                $("#student-records").append(`
+                    <tr>
+                      <td>${index + 1}</td>
+                      <td>${m.student_id}</td>
+                      <td>${m.student_name}</td>
+                      <td>${m.class}</td>
+                      <td>${m.phone_no}</td>
+                      <td>${m.email}</td>
+                      <td>${m.fee_amount_formatted}</td>
+                      <td>${m.fee_month}</td>
+                      <td>${m.invoice_url
+                         ? `<button class="btn btn-sm btn-success" onclick="window.open('${m.invoice_url}', '_blank')">Download Invoice</button>`
+                         : 'Not Found'
+                        }
+                      </td> 
+                      <td>${m.status}</td>                     
+                    </tr>
+                `)
+            })
+        })
+    }
+</script>
+{% endblock %}

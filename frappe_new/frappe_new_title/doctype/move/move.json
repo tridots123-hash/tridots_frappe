@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Move-.###",
+ "creation": "2025-05-24 15:29:47.420982",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "movie_name",
+  "genre",
+  "release_date",
+  "rating"
+ ],
+ "fields": [
+  {
+   "fieldname": "movie_name",
+   "fieldtype": "Data",
+   "label": "Movie Name"
+  },
+  {
+   "fieldname": "genre",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Genre",
+   "options": "Action\nFight\nComedy"
+  },
+  {
+   "fieldname": "release_date",
+   "fieldtype": "Date",
+   "label": "Release Date"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Float",
+   "label": "Rating"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-28 13:08:39.595067",
+ "modified_by": "Administrator",
+ "module": "frappe-new-title",
+ "name": "Move",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -20,6 +20,67 @@ app_license = "mit"
 # 		"has_permission": "frappe_new.api.permission.has_app_permission"
 # 	}
 # ]
+# test_string = "value"
+# test_list = ["value"]
+# test_dict = {
+#     "key": "value"
+# }
+
+# student_app/hooks.py
+# website_route_rules = [
+#     {"from_route": "/student-records", "to_route": "frappe_new/www/student-records"}
+# ]
+
+doctype_js = {
+    "Product Transfer": "public/js/product_transfer.js"
+}
+
+doctype_js = {
+    "Move": "public/js/movie.js"
+}
+
+doctype_js = {
+    "Razorpay test": "public/js/razorpay_test.js"
+}
+
+fixtures = [
+    {
+        "dt": "News Alert",
+        "filters": {
+            "is_active": 1
+        }
+    }
+]
+# app_include_js = "/assets/frappe_new/js/razorpay_test.js"
+
+# my_custom_app/hooks.py
+
+sounds = [
+    {
+        "name": "success",
+        "src": "/assets/frappe_new/sounds/glass-break-316720.mp3"
+    }
+]
+
+website_route_rules = [
+    {"from_route": "/home_work", "to_route": "home_work"}
+]
+
+website_route_rules = [
+    {"from_route": "/expense-entry", "to_route": "expense_entry"}
+]
+
+website_route_rules = [
+    {"from_route": "/student_payment", "to_route": "student_payment"}
+]
+
+website_route_rules = [
+    {"from_route": "/Payment_register", "to_route": "Payment_register"}
+]
+
+app_include_js = [
+    "https://checkout.razorpay.com/v1/checkout.js"
+]
 
 # Includes in <head>
 # ------------------
@@ -51,13 +112,13 @@ app_license = "mit"
 # Svg Icons
 # ------------------
 # include app icons in desk
-# app_include_icons = "frappe_new/public/icons.svg"
+# app_include_icons = "frappe_new/public/broadcast.svg"
 
 # Home Pages
 # ----------
 
 # application home page (will override Website Settings)
-# home_page = "login"
+home_page = "login"
 
 # website user home page (by Role)
 # role_home_page = {
@@ -129,21 +190,27 @@ app_license = "mit"
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {
+	"News Paper Article": "frappe_new.frappe_new_title.overrides.news_paper_articles.NewsPaperArticle"
+}
+
+before_migrate = "frappe_new.frappe_new_title.migrate.before_migrate"
+after_migrate = "frappe_new.frappe_new_title.migrate.after_migrate"
+
+portal_menu_items = [
+    {"title": "Dashboard", "route": "/dashboard", "role": "Administrator"},
+    {"title": "Orders", "route": "/orders", "role": "Administrator"},
+]
 
 # Document Events
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"News Alert": {
+		"before_insert": "frappe_new.api.handle_alert"
+	}
+}
 
 # Scheduled Tasks
 # ---------------

@@ -1,0 +1,207 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<div class="container-fuild">
+<div class="container-fluid mb-1">
+  <div class="d-flex justify-content-center align-items-center">
+      <h3 class="text-primary fw-bold mb-4">Musthafa Matric Hr.Sec.School</h3>
+  </div>
+  <div class="d-flex justify-content-between align-items-center">
+  <h3 class="text-primary fw-bold mb-4">📝 Today Home Work</h3>
+  <button class="btn btn-primary" onclick="window.location.href='/student_payment'">Student Payment</button>
+  </div>
+  <h5 class="text-secondary fw-bold m-0">Teacher Portal</h5>
+</div>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <button class="btn btn-primary" onclick="window.location.href='/Payment_register'">Payment Registor</button>
+    <div class="d-flex justify-content-end align-items-center mb-3 gap-4">
+      <input id="search-box" type="text" class="form-control w-50 mr-2" placeholder="Search...">
+      <button class="btn btn-primary mr-2" id="generate-pdf">Generate PDF</button>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#taskModal">+ Add</button>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered table-striped align-middle">
+      <thead class="table-primary text-center">
+        <tr>
+          <th>S.No</th>
+          <th>Teacher Name</th>
+          <th>Subject</th>
+          <th>Class</th>
+          <th>Topic</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody id="movie_list" class="text-center">
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form id="todo-form">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="taskModalLabel">Add New Task</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="teacher_name" class="form-label">Teacher Name:</label>
+            <input type="text" class="form-control" id="teacher_name" placeholder="Enter teacher name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="subject" class="form-label">Subject:</label>
+            <select id="subject" class="form-control" required>
+              <option selected disabled>--select Your Subject--</option>
+              <option value="Tamil">Tamil</option>
+              <option value="English">English</option>
+              <option value="Maths">Maths</option>
+              <option value="Science">Science</option>
+              <option value="Social">Social</option>
+              <option value="Computer">Computer</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="class" class="form-label">Class:</label>
+            <select id="class" class="form-control" required>
+              <option selected disabled>--select Your Class--</option>
+              <option value="(10th-A)">(10th-A)</option>
+              <option value="(10th-B)">(10th-B)</option>
+              <option value="(10th-C)">(10th-C)</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="topic" class="form-label">Topic:</label>
+            <input type="text" class="form-control" id="topic" placeholder="Enter topic" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea class="form-control" id="description" rows="3" placeholder="Describe the task..."></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="status" class="form-label">Status:</label>
+            <select id="status" class="form-control">
+              <option value="Pending">Pending</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Done">Done</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="created_at" class="form-label">Created Date:</label>
+            <input type="date" class="form-control" id="created_at" required />
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success w-100">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", fetchTasks);
+    document.getElementById("todo-form").addEventListener("submit", function (e) {
+         e.preventDefault()
+         const TeacherName = document.getElementById("teacher_name").value;
+         const Subject = document.getElementById("subject").value;
+         const Class = document.getElementById("class").value;
+         const Topic = document.getElementById("topic").value;
+         const Description = document.getElementById("description").value;
+         const Created = document.getElementById("created_at").value;
+         const Status = document.getElementById("status").value;
+
+         try {
+            frappe.call({
+                method: "frappe_new.frappe_new_title.doctype.home_work.home_work.create_task",
+                args: { TeacherName, Subject, Class, Topic, Description, Status, Created },
+                callback: function (r) {
+                    frappe.msgprint(r.message.message)
+                    location.reload();
+                    e.target.reset();
+                }
+            })
+            } catch (err) {
+                frappe.throw(err)
+            }
+  
+    });
+   $("#generate-pdf").on("click", handleGeneratePdf);
+
+   $("#search-box").on('input', function() {
+     const query = $(this).val();
+     frappe.call({
+      method:"frappe_new.frappe_new_title.doctype.home_work.home_work.get_task",
+      args: {query},
+      callback: function(r) {
+        if (r.message.length > 0) {
+            $("#movie_list").empty();
+            const todo_item = r.message
+            $.each(todo_item, function(index, m){
+                    $("#movie_list").append(`
+                    <tr>
+                       <td>${index + 1}</td>
+                       <td>${m.teacher_name}</td>
+                       <td>${m.subject}</td>
+                       <td>${m.class}</td>
+                       <td>${m.topics}</td>
+                       <td>${m.description}</td>
+                       <td>${m.status}</td>
+                       <td>${m.created_at}</td>
+                    </tr> 
+                `)
+            })
+        }
+      }
+     })
+   })
+     function fetchTasks() {
+        return frappe.call({
+            method:"frappe_new.frappe_new_title.doctype.home_work.home_work.get_task"
+        }).then((r) => {
+            const todo_items = r.message
+            $.each(todo_items, function(index, m){
+                    $("#movie_list").append(`
+                    <tr>
+                       <td>${index + 1}</td>
+                       <td>${m.teacher_name}</td>
+                       <td>${m.subject}</td>
+                       <td>${m.class}</td>
+                       <td>${m.topics}</td>
+                       <td>${m.description}</td>
+                       <td>${m.status}</td>
+                       <td>${m.created_at}</td>
+                    </tr> 
+                `)
+            })
+        })
+     }
+     function handleGeneratePdf() {
+       frappe.call({
+         method: "frappe_new.frappe_new_title.doctype.home_work.home_work.doc_generate"
+       }).then(r => {
+         const url = r.message;
+         if (url) {
+           window.open(url, "_blank");     
+         } else {
+           frappe.msgprint({
+             title: "Error",
+             message: "No PDF URL returned.",
+             indicator: "red"
+           });
+         }
+       });
+     }
+</script>
+{% endblock %}

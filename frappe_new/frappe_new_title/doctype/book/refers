@@ -1,0 +1,135 @@
+frappe.form.link_formatters['Author'] = function(value, doc) {
+    if (doc && doc.author_email) {
+        return value + ' (' + doc.author_email + ')';
+    }
+    return value;
+};
+
+frappe.ui.form.on('Book', {
+    author: function(frm) {
+        if (frm.doc.author) {
+            frappe.db.get_doc('Author', frm.doc.author).then(doc => {
+                frm.set_value('author_email', doc.email);
+            });
+        }
+    }
+});
+
+
+frappe.listview_settings['Employee'] = {
+  add_fields: ["status"],
+  get_indicator: function(doc) {
+    if (doc.status === "Active") {
+      return [__("Active"), "green", "status,=,Active"];
+    } else {
+      return [__("Inactive"), "red", "status,=,Inactive"];
+    }
+  },
+  onload: function(listview) {
+    listview.page.set_title("Active Employees");
+  }
+}
+
+// get_route
+frappe.ui.form.on("Move", {
+    onload: function(frm) {
+        let route = frappe.get_route();
+        let simple_task = route[1]; 
+        console.log("Simple Task:", simple_task);
+    }
+});
+
+// set_route
+frappe.ui.form.on("Move", {
+    refresh: function(frm) {
+        frm.add_custom_button("Go to Task List", function() {
+            frappe.set_route('List', 'Task', 'List');
+        });
+    }
+});
+
+
+// frappe.format 
+frappe.ui.form.on("Move", {
+    refresh: function(frm) {
+        frm.add_custom_button("Show Price", function() {
+            let raw_price = 2399;
+            let formatted_price = frappe.format(raw_price, {
+                fieldtype: 'Currency',
+                options: 'currency'  // This can also be 'USD', 'INR', etc.
+            }, {
+                inline: true
+            });
+
+            frappe.msgprint(`Formatted Price: <b>${formatted_price}</b>`);
+        });
+    }
+});
+
+let formatted_date = frappe.format('2019-09-08', { fieldtype: 'Date' });
+
+
+//frappe.provide
+frappe.provide('frappe.ui.form.custom_move');
+
+frappe.ui.form.custom_move = {
+    say_hello: function() {
+        frappe.msgprint("Hello da from custom_move!");
+    }
+};
+
+frappe.ui.form.on('Move', {
+    refresh: function(frm) {
+        frm.add_custom_button('Click Me', function() {
+            frappe.ui.form.custom_move.say_hello();
+        });
+    }
+});
+
+// Javascript dialog API
+frappe.ui.form.on('Move', {
+    refresh: function(frm) {
+        frm.add_custom_button('Dialog click', function() {
+            frappe.ui.form.custom_move();
+        });
+    }
+});
+
+frappe.ui.form.custom_move = function() {
+    let d = new frappe.ui.Dialog({
+        title: 'Enter details',
+        fields: [
+            {
+                label: 'First Name',
+                fieldname: 'first_name',
+                fieldtype: 'Data'
+            },
+            {
+                label: 'Last Name',
+                fieldname: 'last_name',
+                fieldtype: 'Data'   // Changed from 'Date' to 'Data' because Last Name is text
+            },
+            {
+                label: 'Age',
+                fieldname: 'age',
+                fieldtype: 'Int'
+            }
+        ],
+        size: 'small',
+        primary_action_label: 'Submit',
+        primary_action: function(values) {
+            console.log(values);
+            d.hide();
+        }
+    });
+    d.show();
+};
+
+
+// Show message after submission
+frappe.msgprint({
+    title: __('Notification'),
+    indicator: 'green',
+    message: __('Document updated successfully')
+});
+

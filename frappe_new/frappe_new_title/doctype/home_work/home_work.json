@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "10th-.##",
+ "creation": "2025-05-29 13:26:17.523770",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "teacher_name",
+  "subject",
+  "class",
+  "topics",
+  "description",
+  "status",
+  "created_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nIn Progress\nDone"
+  },
+  {
+   "fieldname": "teacher_name",
+   "fieldtype": "Data",
+   "label": "Teacher Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Select",
+   "label": "Subject",
+   "options": "Tamil\nEnglish\nMaths\nScience\nSocial\nComputer"
+  },
+  {
+   "fieldname": "class",
+   "fieldtype": "Select",
+   "label": "Class",
+   "options": "(10th-A)\n(10th-B)\n(10th-C)"
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Date",
+   "label": "Created At"
+  },
+  {
+   "fieldname": "topics",
+   "fieldtype": "Data",
+   "label": "Topics"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-03 15:59:12.809451",
+ "modified_by": "Administrator",
+ "module": "frappe-new-title",
+ "name": "Home Work",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

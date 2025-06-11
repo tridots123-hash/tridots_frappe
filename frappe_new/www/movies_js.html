@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movies AJAX</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light py-5">
+    <div class="container">
+    <h2 class="mb-4 text-center text-primary">🎬 Movie List via API</h2>
+    <div class="d-flex justify-content-end mb-2">
+       <button class="btn btn-success" id="addMovieBtn">
+            <i class="fas fa-plus"></i> Add Movie
+       </button>
+    </div>
+    <div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title" id="addMovieModalLabel">Add New Movie</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="movieForm">
+                     <div class="mb-3">
+                       <label for="movieName" class="form-label">Movie Name</label>
+                       <input type="text" class="form-control" id="movieName" required>
+                     </div>
+                     <div class="mb-3">
+                       <label for="genre" class="form-label">Type</label>
+                       <input type="text" class="form-control" id="genre" required>
+                     </div>
+                     <div class="mb-3">
+                       <label for="rating" class="form-label">Rating</label>
+                       <input type="number" class="form-control" id="rating" min="0" max="10" required>
+                     </div>
+                     <div class="mb-3">
+                       <label for="releaseDate" class="form-label">Release Date</label>
+                       <input type="date" class="form-control" id="releaseDate" required>
+                     </div>
+                     <button type="submit" class="btn btn-success">Submit</button>
+                 </form>
+              </div>
+           </div>
+       </div>
+    </div>
+    <div class="table-responsive shadow rounded">
+      <table class="table table-hover table-bordered table-striped align-middle">
+        <thead class="table-primary text-center">
+          <tr>
+            <th>S.No</th>
+            <th>Movie Name</th>
+            <th>Type</th>
+            <th>Rating</th>
+            <th>Release Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="movieList" class="text-center">
+
+        </tbody>
+      </table>
+    </div>
+  <script>
+  $(function () {
+    $.ajax({
+      url: "/api/method/frappe_new.frappe_new_title.doctype.move.move.get_movies",
+      method: "GET",
+      success: function (res) {
+        const movies = res.message;
+        $.each(movies, function(index, m) {
+            $("#movieList").append(`
+                 <tr>
+                    <td>${index + 1}</td>
+                    <td>${m.movie_name}</td>
+                    <td>${m.genre}</td>
+                    <td>(${m.rating})</td>
+                    <td>${m.release_date}</td>  
+                    <td><button class="btn btn-sm btn-primary edit-btn" data-id="${m.id}">
+                    <i class="fas fa-edit"></i>
+                    </button></td>
+                 </tr>
+            `)
+        })
+      },
+      error: function (err) {
+        console.error("Error fetching movies:", err);
+      }
+    });
+    $('#addMovieBtn').on('click', function(e) {
+        $('#addMovieModal').modal('show');
+    })
+    $('#movieForm').on('submit', function(e) {
+        e.preventDefault();
+        const movie = {
+           movie_name: $('#movieName').val(),
+           genre: $('#genre').val(),
+           rating: $('#rating').val(),
+           release_date: $('#releaseDate').val()
+        }
+          $('#movieForm')[0].reset();
+          $('#addMovieModal').modal('hide');
+        console.log("New movie added:", movie);
+    })  
+  });
+</script>
+</body>
+</html>
+

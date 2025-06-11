@@ -1,0 +1,21 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "chart": "New Analynize",
+   "width": "Full"
+  }
+ ],
+ "creation": "2025-06-03 16:52:39.039190",
+ "dashboard_name": "News",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2025-06-03 16:55:29.696521",
+ "modified_by": "Administrator",
+ "module": "frappe-new-title",
+ "name": "News",
+ "owner": "Administrator"
+}

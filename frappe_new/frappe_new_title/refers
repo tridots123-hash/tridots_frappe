@@ -1,0 +1,1553 @@
+frappe.ui.form.on('Transfer Product Detail', {
+    from_location: function(frm, cdt, cdn) {
+        let row = locals[cdt][cdn];
+
+        // Clear current to_location
+        frappe.model.set_value(cdt, cdn, 'to_location', '');
+
+        // Set filter to exclude the selected from_location
+        frm.fields_dict.transfer_product_details.grid.get_field('to_location').get_query = function(doc, cdt, cdn) {
+            let child = locals[cdt][cdn];
+            return {
+                filters: [
+                    ['Location', 'name', '!=', child.from_location]
+                ]
+            };
+        };
+    },
+
+    
+
+    transfer_product_details_add: function(frm, cdt, cdn) {
+        // Set the query on row addition
+        frm.fields_dict.transfer_product_details.grid.get_field('to_location').get_query = function(doc, cdt, cdn) {
+            let child = locals[cdt][cdn];
+            return {
+                filters: [
+                    ['Location', 'name', '!=', child.from_location]
+                ]
+            };
+        };
+    }
+});
+
+
+
+frappe.ui.form.on('Product Transfer', {
+    onload_post_render: function(frm) {
+        hide_child_table_if_empty(frm);
+    },
+    refresh: function(frm) {
+        hide_child_table_if_empty(frm);
+    },
+    // Also check when new rows are added/removed
+    transfer_product_details_add: function(frm) {
+        hide_child_table_if_empty(frm);
+    },
+    transfer_product_details_remove: function(frm) {
+        hide_child_table_if_empty(frm);
+    }
+});
+
+function hide_child_table_if_empty(frm) {
+    let child_data = frm.doc.transfer_product_details || [];
+    
+    if (child_data.length === 0) {
+        frm.fields_dict['transfer_product_details'].wrapper.hide();
+    } else {
+        frm.fields_dict['transfer_product_details'].wrapper.show();
+    }
+}
+
+frappe.ui.form.on('Location', {
+    refresh: function(frm) {
+        // Check if child table has data
+        if (!frm.doc.location_details || frm.doc.location_details.length === 0) {
+            // If no data, hide the child table field
+            frm.set_df_property('location_details', 'hidden', 1);
+        } else {
+            // If data is present, show the child table
+            frm.set_df_property('location_details', 'hidden', 0);
+        }
+    }
+});
+
+
+
+@frappe.whitelist()
+def get_actual_qty(product, location):
+    qty = frappe.db.get_value("Stock Balance", {
+        "product": product,
+        "location": location
+    }, "actual_qty")
+
+    return qty or 0
+
+
+
+
+
+    frappe.ui.form.on("Stock Movement", {
+    refresh: function(frm) {
+        // Optional: hide child table if it's empty
+        frm.toggle_display("products_transferred", frm.doc.products_transferred.length > 0);
+    }
+});
+
+
+
+frappe.ui.form.on("Stock Movement Item", {
+    product: function(frm, cdt, cdn) {
+        const row = locals[cdt][cdn];
+
+        // From Location and Product should be selected
+        if (!frm.doc.from_location || !row.product) {
+            frappe.msgprint("Please select both From Location and Product.");
+            return;
+        }
+
+        // Server call to fetch actual qty
+        frappe.call({
+            method: "your_app.api.get_actual_qty",
+            args: {
+                product: row.product,
+                location: frm.doc.from_location
+            },
+            callback: function(r) {
+                if (r.message !== undefined) {
+                    frappe.model.set_value(cdt, cdn, "qty", r.message);
+                }
+            }
+        });
+    }
+});
+
+
+
+import frappe
+from frappe.model.document import Document
+
+class TaskAlert(Document):
+    def after_insert(self):
+        frappe.publish_realtime(
+            'new_task_alert_created',
+            {'title': self.title, 'description': self.description}
+        )
+
+frappe.ui.form.on("Task Alert", {
+    refresh: function (frm) {
+        // Register realtime event only when form is loaded
+        frappe.realtime.on('new_task_alert_created', function (data) {
+            console.log("Realtime Event Received:", data);
+            frappe.msgprint(`New Task: ${data.title}`);
+        });
+    }
+});
+
+import frappe
+from frappe.model.document import Document
+
+class TaskAlert(Document):
+    def validate(self):
+        doc = frappe.get_doc("Task Alert", "TASK-0001")
+        doc.title = "Changed Title"
+        doc.save()
+        frappe.msgprint("✅ TASK-0001 updated inside validate")
+
+
+
+
+        import frappe
+from frappe import _
+
+@frappe.whitelist()
+def get_movies():
+    movies = frappe.get_list(
+        "Movie",
+        fields=["movie_name", "rating"]
+    )
+    return movies
+
+
+
+    frappe.ui.form.on('Movie', {
+    refresh: function(frm) {
+        frm.add_custom_button('Load Movies', () => {
+            frappe.call({
+                method: "your_app.movie.movie.get_movies",  // adjust path if needed
+                callback: function(r) {
+                    if (r.message) {
+                        let movie_list = r.message.map(m => `${m.movie_name} (${m.rating})`).join('<br>');
+                        frappe.msgprint({
+                            title: "Movie List",
+                            message: movie_list,
+                            indicator: 'blue'
+                        });
+                    }
+                }
+            });
+        });
+    }
+});
+
+
+# single value
+subject = frappe.db.get_value('Task', 'TASK00002', 'subject')
+
+# multiple values
+subject, description = frappe.db.get_value('Task', 'TASK00002', ['subject', 'description'])
+
+# as dict
+task_dict = frappe.db.get_value('Task', 'TASK00002', ['subject', 'description'], as_dict=1)
+task_dict.subject
+task_dict.description
+
+# with filters, will return the first record that matches filters
+subject, description = frappe.db.get_value('Task', {'status': 'Open'}, ['subject', 'description'])
+
+
+timezone = frappe.db.get_single_value('System Settings', 'timezone')
+
+# update a field value
+frappe.db.set_value('Task', 'TASK00002', 'subject', 'New Subject')
+
+update a multiple value
+frappe.db.set_value('Task', 'TASK00002', {
+    'subject': 'New Subject',
+    'description': 'New Description'
+})
+
+
+# update without updating the `modified` timestamp
+frappe.db.set_value('Task', 'TASK00002', 'subject', 'New Subject', update_modified=False)
+
+
+if frappe.db.exists("Move", "Move-001"):
+    # If exists, update the values
+    movies = frappe.db.set_value(
+        "Move", 
+        "Move-001", 
+        {"movie_name": "Game Of Thrones", "genre": "Fight"}, 
+        update_modified=False
+    )
+    return movies
+else:
+    frappe.msgprint("Record not found!")
+
+data = frappe.db.sql("SELECT movie_name, genre FROM `tabMove` WHERE genre=%s", ("Action",), as_dict=True)
+
+
+
+
+import frappe
+
+@frappe.whitelist()
+def get_published_articles():
+    return frappe.get_all("News Article", filters={"published": 1}, fields=["name", "title", "author"])
+
+
+
+    <h2>Published Articles</h2>
+<div id="article-list">
+  <!-- Articles will load here -->
+</div>
+
+<script>
+  frappe.call({
+    method: "my_app.news_article.news_article.get_published_articles",
+    callback: function(r) {
+      const articles = r.message;
+      const container = document.getElementById("article-list");
+
+      if (articles.length === 0) {
+        container.innerHTML = "<p>No articles found.</p>";
+        return;
+      }
+
+      articles.forEach(article => {
+        const el = document.createElement("div");
+        el.innerHTML = `<h4>${article.title}</h4><p>By: ${article.author}</p>`;
+        container.appendChild(el);
+      });
+    }
+  });
+</script>
+
+
+
+$.each(movieArray, function(index, m) {
+  $("#movieList").append(`
+    <tr>
+      <td>${index + 1}</td>
+      <td>${m.movie_name}</td>
+      <td>${m.genre}</td>
+      <td>${m.rating}</td>
+      <td>${m.release_date}</td>
+    </tr>
+  `);
+});
+
+
+ <div class="d-flex justify-content-end mb-2">
+    <button class="btn btn-success" id="addMovieBtn">
+      <i class="fas fa-plus"></i> Add Movie
+    </button>
+  </div>
+
+
+  $('#movieForm').on('submit', function(e) {
+  e.preventDefault();
+
+  const movie = {
+    movie_name: $('#movieName').val(),
+    genre: $('#genre').val(),
+    rating: $('#rating').val(),
+    release_date: $('#releaseDate').val()
+  };
+
+  console.log("New movie added:", movie);
+
+  // Clear form and hide modal
+  $('#movieForm')[0].reset();
+  $('#addMovieModal').modal('hide');
+
+  // You can also add the new row to the table here if you want
+});
+
+
+
+$('#addMovieBtn').on('click', function() {
+  $('#addMovieModal').modal('show');
+});
+
+
+
+
+<!-- Add Movie Modal -->
+<div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="addMovieModalLabel">Add New Movie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="movieForm">
+          <div class="mb-3">
+            <label for="movieName" class="form-label">Movie Name</label>
+            <input type="text" class="form-control" id="movieName" required>
+          </div>
+          <div class="mb-3">
+            <label for="genre" class="form-label">Type</label>
+            <input type="text" class="form-control" id="genre" required>
+          </div>
+          <div class="mb-3">
+            <label for="rating" class="form-label">Rating</label>
+            <input type="number" class="form-control" id="rating" min="0" max="10" required>
+          </div>
+          <div class="mb-3">
+            <label for="releaseDate" class="form-label">Release Date</label>
+            <input type="date" class="form-control" id="releaseDate" required>
+          </div>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+$('#movieForm').on('submit', function(e) {
+  e.preventDefault();
+
+  const movie = {
+    movie_name: $('#movieName').val(),
+    genre: $('#genre').val(),
+    rating: $('#rating').val(),
+    release_date: $('#releaseDate').val()
+  };
+
+  console.log("New movie added:", movie);
+
+  // Clear form and hide modal
+  $('#movieForm')[0].reset();
+  $('#addMovieModal').modal('hide');
+
+  // You can also add the new row to the table here if you want
+});
+
+
+
+
+from frappe.model.document import Document
+import frappe
+
+class TodoItem(Document):
+    def validate(self):
+        if not self.title:
+            frappe.throw("Title is required")
+
+
+
+            <!-- todo_app/www/todo_list.html -->
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<h2>My Todo List</h2>
+
+<ul>
+  {% for item in todo_items %}
+    <li>
+      <strong>{{ item.title }}</strong> - {{ item.status }}
+      <p>{{ item.description }}</p>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+
+import frappe
+
+def get_context(context):
+    context.todo_items = frappe.get_all(
+        'Todo Item',
+        fields=['title', 'description', 'status'],
+        order_by='creation desc'
+    )
+
+
+    website_route_rules = [
+    {"from_route": "/todo-list", "to_route": "todo_list"}
+]
+
+
+
+
+
+
+
+
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="container mt-5">
+  <div class="card shadow-lg rounded">
+    <div class="card-header bg-primary text-white">
+      <h2 class="mb-0">📝 My Todo List</h2>
+    </div>
+    <div class="card-body">
+      <!-- 🚀 Form to add new task -->
+      <form id="todo-form">
+        <div class="mb-3">
+          <label for="title" class="form-label">Task Title</label>
+          <input type="text" class="form-control" id="title" placeholder="Enter task title" required>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" id="description" rows="3" placeholder="Describe the task..."></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="status" class="form-label">Status</label>
+          <select class="form-select" id="status">
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Add Task</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<h2>My Todo List</h2>
+
+<!-- 🚀 Form to add new task -->
+<form id="todo-form" class="mb-4">
+  <input type="text" id="title" placeholder="Title" required><br>
+  <textarea id="description" placeholder="Description"></textarea><br>
+  <select id="status">
+    <option value="Pending">Pending</option>
+    <option value="In Progress">In Progress</option>
+    <option value="Done">Done</option>
+  </select><br>
+  <button type="submit">Add Task</button>
+</form>
+
+<!-- ✅ Display Tasks -->
+<ul id="task-list">
+  {% for item in todo_items %}
+    <li>
+      <strong>{{ item.title }}</strong> - {{ item.status }}
+      <p>{{ item.description }}</p>
+    </li>
+  {% endfor %}
+</ul>
+
+<script>
+  document.getElementById("todo-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+    const status = document.getElementById("status").value;
+
+    frappe.call({
+      method: "todo_app.www.todo_list.create_task",
+      args: {
+        title,
+        description,
+        status
+      },
+      callback: function (r) {
+        if (!r.exc) {
+          alert("Task added!");
+          location.reload(); // or update DOM manually
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}
+
+
+import frappe
+
+def get_context(context):
+    context.todo_items = frappe.get_all(
+        'Todo Item',
+        fields=['title', 'description', 'status'],
+        order_by='creation desc'
+    )
+
+@frappe.whitelist(allow_guest=True)
+def create_task(title, description, status):
+    doc = frappe.new_doc("Todo Item")
+    doc.title = title
+    doc.description = description
+    doc.status = status
+    doc.insert()
+    return {"message": "Created", "name": doc.name}
+
+
+const taskList = document.getElementById("task-list");
+const li = document.createElement("li");
+li.innerHTML = `<strong>${title}</strong> - ${status}<p>${description}</p>`;
+taskList.prepend(li);
+
+
+
+@frappe.whitelist(allow_guest=True)
+def create_task(title, description, status):
+    # 1️⃣ create + insert the doc
+    doc = frappe.get_doc({
+        "doctype": "Todo Item",
+        "title": title,
+        "description": description,
+        "status": status
+    }).insert(ignore_permissions=True)
+
+    # 2️⃣ commit so it’s visible immediately to subsequent queries
+    frappe.db.commit()
+
+    # 3️⃣ pull the fresh list (same query you use in get_context)
+    todo_items = frappe.get_all(
+        "Todo Item",
+        fields=["title", "description", "status"],
+        order_by="creation desc"
+    )
+
+    # 4️⃣ return both the new doc *and* the updated list
+    return {
+        "message": "Created",
+        "doc": doc.as_dict(),      # single row – handy if you just want to prepend
+        "todo_items": todo_items   # whole refreshed list – if you want full rerender
+    }
+
+@frappe.whitelist()
+def create_task(TeacherName, Subject, Class, Topic, Description, Status, Created):
+    doc = frappe.get_doc({
+        "doctype": "Home Work",
+        "teacher_name": TeacherName,
+        "subject": Subject,
+        "class": Class,
+        "topics": Topic,
+        "description": Description,
+        "status": Status,
+        "created_at": Created
+    }).insert(ignore_permissions=True)
+    
+    frappe.db.commit()
+
+    return {
+        "message": "Home work Registor has been successfully Added",
+    }
+
+    Promise.all([
+  frappe.call({ method: "my_app.api.method_one", args: { /* … */ } }),
+  frappe.call({ method: "my_app.api.method_two", args: { /* … */ } })
+]).then(([res1, res2]) => {
+  console.log(res1.message, res2.message);
+});
+
+
+
+
+<script>
+/* ---------- 1. Fetch tasks on page load ---------- */
+document.addEventListener("DOMContentLoaded", fetchTasks);
+
+/* ---------- 2. Handle the form submit ---------- */
+document.getElementById("todo-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const title       = document.getElementById("title").value.trim();
+  const description = document.getElementById("description").value.trim();
+  const status      = document.getElementById("status").value.trim();
+
+  try {
+    /* --- create_task --- */
+    const createRes = await frappe.call({
+      method: "frappe_new.frappe_new_title.doctype.todo_item.todo_item.create_task",
+      args: { title, description, status },
+    });
+
+    frappe.msgprint(createRes.message?.message || "Task added!");
+
+    /* --- 3. refresh list after success --- */
+    await fetchTasks();
+
+    /* optional: clear the form */
+    e.target.reset();
+  } catch (err) {
+    console.error(err);
+    frappe.msgprint({ title: "Error", indicator: "red", message: err.message || err });
+  }
+});
+
+/* ---------- Helper: fetch & display tasks ---------- */
+function fetchTasks() {
+  return frappe
+    .call({
+      method: "frappe_new.frappe_new_title.doctype.todo_item.todo_item.get_task",
+    })
+    .then((r) => {
+      const tasks = r.message || [];
+      console.log(tasks);           // replace with real UI rendering ⬇️
+      // renderTasks(tasks);        // e.g. update a <ul id="task-list"> here
+    });
+}
+</script>
+
+
+
+<div class="table-responsive shadow rounded">
+      <table class="table table-hover table-bordered table-striped align-middle">
+        <thead class="table-primary text-center">
+          <tr>
+            <th>S.No</th>
+            <th>Movie Name</th>
+            <th>Type</th>
+            <th>Rating</th>
+            <th>Release Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="movieList" class="text-center">
+
+        </tbody>
+      </table>
+    </div>
+
+
+     const movies = res.message;
+        $.each(movies, function(index, m) {
+            $("#movieList").append(`
+                 <tr>
+                    <td>${index + 1}</td>
+                    <td>${m.movie_name}</td>
+                    <td>${m.genre}</td>
+                    <td>(${m.rating})</td>
+                    <td>${m.release_date}</td>  
+                    <td><button class="btn btn-sm btn-primary edit-btn" data-id="${m.id}">
+                    <i class="fas fa-edit"></i>
+                    </button></td>
+                 </tr>
+            `)
+        })
+
+
+        import frappe
+from frappe.utils.formatters import format_value  # optional if you format in Python
+
+def get_context(context):
+    # pull last 50 expense entries for current user
+    context.expenses = frappe.get_all(
+        "Expense Entry",
+        filters={"owner": frappe.session.user},
+        fields=["name", "expense_date", "title", "amount", "status"],
+        order_by="expense_date desc",
+        limit_page_length=50,
+    )
+
+
+
+
+    {% extends "templates/web.html" %}
+
+{% block page_content %}
+<h2 class="mb-4">My Expense Entries</h2>
+
+<table class="table table-bordered">
+  <thead class="table-light">
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Amount (₹)</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for exp in expenses %}
+      <tr>
+        <td>{{ frappe.format(exp.expense_date, {'fieldtype': 'Date'}) }}</td>
+        <td>
+          <!-- link to the form view of that document -->
+          {{ frappe.format(exp.name, {'fieldtype': 'Link', 'options': 'Expense Entry'}, exp) }}
+        </td>
+        <td class="text-end">
+          {{ frappe.format(exp.amount,
+              {'fieldtype': 'Currency', 'options': 'INR'}, exp) }}
+        </td>
+        <td>
+          {{ frappe.format(exp.status, {'fieldtype': 'Data'}) }}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
+
+
+
+
+frappe.ui.form.on('ToDo Item', {
+    refresh(frm) {
+        frm.add_custom_button(__('Generate Invoice PDF'), function() {
+            frappe.call({
+                method: 'your_app_path.your_module_file.generate_invoice',
+                callback: function(r) {
+                    if (!r.exc) {
+                        // Automatically opens the generated PDF in new tab
+                        const fileUrl = r.message;
+                        if (fileUrl) {
+                            window.open(fileUrl); // View or print
+                        } else {
+                            frappe.msgprint("Failed to generate PDF.");
+                        }
+                    }
+                }
+            });
+        });
+    }
+});
+
+
+
+
+from frappe.utils.pdf import get_pdf
+import frappe
+
+@frappe.whitelist()
+def generate_invoice():
+    todo_items = frappe.get_all('ToDo Item', fields=['title', 'qty'])
+
+    html = """
+    <html>
+    <head>
+        <style>
+            h1 { text-align: center; }
+            table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+            th, td { border: 1px solid #333; padding: 8px; }
+            th { background-color: #f0f0f0; }
+        </style>
+    </head>
+    <body>
+        <h1>Invoice from Star Electronics e-Store</h1>
+        <table>
+            <tr><th>S.No</th><th>Item Name</th><th>Quantity</th></tr>
+    """
+
+    for i, item in enumerate(todo_items, start=1):
+        html += f"<tr><td>{i}</td><td>{item.title}</td><td>{item.qty}</td></tr>"
+
+    html += "</table></body></html>"
+
+    pdf = get_pdf(html)
+
+    file_doc = frappe.get_doc({
+        "doctype": "File",
+        "file_name": "invoice.pdf",
+        "content": pdf,
+        "is_private": 0  # make public
+    }).insert(ignore_permissions=True)
+
+    return file_doc.file_url  # 👈 send URL to frontend
+
+
+
+    # my_custom_app/hooks.py
+app_name = "my_custom_app"
+app_title = "My Custom App"
+# … (other meta) …
+
+sounds = [
+    {"name": "success", "src": "/assets/my_custom_app/sounds/success.mp3"},
+    {"name": "alert",   "src": "/assets/my_custom_app/sounds/alert.mp3"},
+]
+
+# Load a JS file only when “News Flash” form opens
+doctype_js = {
+    "News Flash": "public/js/news_flash.js"
+}
+
+
+
+// news_flash.js
+frappe.ui.form.on('News Flash', {
+    // after the doc is saved (new insert or update)
+    after_save(frm) {
+        frappe.msgprint(__('News Flash saved! 🔥'));
+        frappe.utils.play_sound('success');
+    },
+
+    // example: play alert sound if title left empty
+    validate(frm) {
+        if (!frm.doc.title) {
+            frappe.utils.play_sound('alert');
+        }
+    }
+});
+
+
+
+<input type="text" id="search-box" placeholder="Search anything..." />
+<ul id="search-results"></ul>
+
+
+$('#search-box').on('input', function () {
+    const query = $(this).val();
+
+    frappe.call({
+        method: 'your_app.api.search.global_search',
+        args: { query },
+        callback: function (r) {
+            const resultsList = $('#search-results');
+            resultsList.empty();
+
+            if (r.message && r.message.length > 0) {
+                r.message.forEach(result => {
+                    resultsList.append(`<li><b>${result.doctype}</b>: ${result.content}</li>`);
+                });
+            } else {
+                resultsList.append('<li>No results found</li>');
+            }
+        }
+    });
+});
+
+
+from frappe.utils.global_search import FullTextSearch
+import frappe
+
+@frappe.whitelist()
+def global_search(query, doctype=None):
+    if not query:
+        return []
+
+    fts = FullTextSearch()
+    results = fts.search(query, doctype=doctype)
+    
+    return results
+
+
+    import frappe
+from frappe import _
+
+@frappe.whitelist()
+def search_items(query):
+    if not query:
+        return []
+
+    # Search inside the field `task_name` (you can change this to any field)
+    results = frappe.get_all(
+        "Todo Item",
+        filters={
+            "task_name": ["like", f"%{query}%"]
+        },
+        fields=["name", "task_name", "status", "priority"]
+    )
+
+    return results
+
+    @frappe.whitelist()
+def search_items(query):
+    if not query:
+        return []
+    results = frappe.get_all(
+        "Todo Item",
+        filters={
+            "title": ["like", f"%{query}%"]
+        },
+        fields=["name", "title", "description", "status"]
+    )
+    return results
+
+
+    import frappe
+from frappe import _
+
+@frappe.whitelist()
+def get_task(query=None):
+    if query:
+        # If query is present, filter based on title
+        results = frappe.get_all(
+            "Todo Item",
+            filters={
+                "title": ["like", f"%{query}%"]
+            },
+            fields=["title", "description", "status"],
+            order_by="creation desc"
+        )
+        return results
+    else:
+        # If no query, return all
+        todo_get_items = frappe.get_all(
+            "Todo Item",
+            fields=["title", "description", "status"],
+            order_by="creation desc"
+        )
+        return todo_get_items
+
+
+        @frappe.whitelist()
+def get_task(query=None):
+    if query:
+        return frappe.db.sql("""
+            SELECT title, description, status
+            FROM `tabTodo Item`
+            WHERE title LIKE %(q)s
+               OR description LIKE %(q)s
+               OR status LIKE %(q)s
+            ORDER BY creation DESC
+        """, {"q": f"%{query}%"}, as_dict=True)
+
+    return frappe.get_all(
+        "Todo Item",
+        fields=["title", "description", "status"],
+        order_by="creation desc"
+    )
+
+
+
+    
+
+
+    frappe.query_reports["Student Class Wise Report"] = {
+    "filters": [
+        {
+            "fieldname": "class",
+            "label": "Class",
+            "fieldtype": "Select",
+            "options": "\nClass A\nClass B\nClass C\nClass D",
+            "default": "Class A",
+            "reqd": 0
+        }
+    ]
+};
+
+
+
+
+
+import frappe
+from frappe.utils import flt
+
+def execute(filters=None):
+    columns = get_columns()
+    data = get_data(filters)
+    return columns, data
+
+def get_columns():
+    return [
+        {"label": "Student Name", "fieldname": "name", "fieldtype": "Data", "width": 200},
+        {"label": "Age", "fieldname": "age", "fieldtype": "Int", "width": 100},
+        {"label": "Class", "fieldname": "class", "fieldtype": "Data", "width": 100},
+        {"label": "Joining Date", "fieldname": "joining_date", "fieldtype": "Date", "width": 120}
+    ]
+
+def get_data(filters):
+    condition = ""
+    if filters.get("class"):
+        condition += "AND class = %(class)s"
+
+    return frappe.db.sql("""
+        SELECT
+            name, age, class, joining_date
+        FROM
+            `tabStudent`
+        WHERE
+            1=1 {condition}
+        ORDER BY
+            joining_date DESC
+    """.format(condition=condition), filters, as_dict=1)
+
+
+    import frappe
+from frappe import _
+
+def execute(filters=None):
+    columns = [
+        {"label": "Category", "fieldname": "category", "fieldtype": "Data", "width": 200},
+        {"label": "Total Views", "fieldname": "total_views", "fieldtype": "Int", "width": 150}
+    ]
+
+    data = frappe.db.sql("""
+        SELECT category, SUM(views) as total_views
+        FROM `tabNews View Tracker`
+        GROUP BY category
+        ORDER BY total_views DESC
+    """, as_dict=1)
+
+    chart = {
+        "data": {
+            "labels": [row["category"] for row in data],
+            "datasets": [
+                {
+                    "name": "Views",
+                    "values": [row["total_views"] for row in data]
+                }
+            ]
+        },
+        "type": "bar",  # Can be pie, line etc.
+        "colors": ["#FFC107"]
+    }
+
+    return columns, data, None, chart
+
+
+
+
+    import frappe
+from frappe import _
+
+def execute(filters=None):
+    columns = [
+        {"label": "News Title", "fieldname": "news_title", "fieldtype": "Data", "width": 200},
+        {"label": "Category", "fieldname": "category", "fieldtype": "Data", "width": 200},
+        {"label": "Total Views", "fieldname": "total_views", "fieldtype": "Int", "width": 150},
+        {"label": "Viewed On", "fieldname": "viewed_on", "fieldtype": "Date", "width": 200}
+    ]
+
+    data = get_data(filters)
+
+    chart = {
+        "data": {
+            "labels": [row["category"] for row in data],
+            "datasets": [
+                {
+                    "name": "Views",
+                    "values": [row["total_views"] for row in data]
+                }
+            ]
+        },
+        "type": "bar",
+        "colors": ["#E14718"]
+    }
+
+    return columns, data, None, chart
+
+def get_data(filters):
+    condition = ""
+    if filters.get("viewed_on"):
+        condition += " AND viewed_on = %(viewed_on)s"
+
+    return frappe.db.sql("""
+        SELECT category, SUM(views) AS total_views, news_title, viewed_on
+        FROM `tabNews View Tracker`
+        WHERE 1=1 {condition}
+        GROUP BY category, news_title, viewed_on
+        ORDER BY total_views DESC
+    """.format(condition=condition), filters, as_dict=1)
+
+
+
+
+
+    import frappe
+from frappe import _
+from datetime import datetime, timedelta
+
+def execute(filters=None):
+    columns = [
+        {"label": "News Title", "fieldname": "news_title", "fieldtype": "Data", "width": 200},
+        {"label": "Category", "fieldname": "category", "fieldtype": "Data", "width": 200},
+        {"label": "Total Views", "fieldname": "total_views", "fieldtype": "Int", "width": 150},
+        {"label": "Viewed On", "fieldname": "viewed_on", "fieldtype": "Date", "width": 200}
+    ]
+
+    data = get_data(filters)
+
+    chart = {
+        "data": {
+            "labels": [row["category"] for row in data],
+            "datasets": [
+                {
+                    "name": "Views",
+                    "values": [row["total_views"] for row in data]
+                }
+            ]
+        },
+        "type": "bar",
+        "colors": ["#E14718"]
+    }
+
+    return columns, data, None, chart
+
+
+def get_date_range(filter_option):
+    today = frappe.utils.today()
+    if filter_option == "Today":
+        return today, today
+    elif filter_option == "Yesterday":
+        yesterday = frappe.utils.add_days(today, -1)
+        return yesterday, yesterday
+    elif filter_option == "Last 7 Days":
+        from_date = frappe.utils.add_days(today, -6)
+        return from_date, today
+    elif filter_option == "This Month":
+        from_date = today[:8] + "01"
+        return from_date, today
+    elif filter_option == "This Year":
+        from_date = today[:4] + "-01-01"
+        return from_date, today
+    return None, None
+
+
+def get_data(filters):
+    condition = ""
+    from_date, to_date = get_date_range(filters.get("date_range"))
+
+    if from_date and to_date:
+        condition += " AND viewed_on BETWEEN %(from_date)s AND %(to_date)s"
+        filters["from_date"] = from_date
+        filters["to_date"] = to_date
+
+    return frappe.db.sql("""
+        SELECT category, SUM(views) AS total_views, news_title, viewed_on
+        FROM `tabNews View Tracker`
+        WHERE 1=1 {condition}
+        GROUP BY category, news_title, viewed_on
+        ORDER BY total_views DESC
+    """.format(condition=condition), filters, as_dict=1)
+
+    
+
+
+    frappe.query_reports["News Views Analytics"] = {
+    "filters": [
+        {
+            "fieldname": "date_range",
+            "label": "Date Range",
+            "fieldtype": "Select",
+            "options": [
+                "",
+                "Today",
+                "Yesterday",
+                "Last 7 Days",
+                "This Month",
+                "This Year"
+            ],
+            "default": "Last 7 Days"
+        }
+    ]
+};
+
+
+frappe.ui.form.on('Razorpay Test', {
+    refresh: function (frm) {
+        // Razorpay Payment Button
+        frm.add_custom_button('Open Razorpay', () => {
+            const amount_in_paise = (frm.doc.currency || 100) * 100;
+
+            const options = {
+                key: "rzp_test_1DP5mmOlF5G5ag", // Replace with your key_id
+                amount: amount_in_paise,
+                currency: "INR",
+                name: frm.doc.customer_name || "Demo User",
+                description: "This is a demo payment - no real money involved",
+                prefill: {
+                    name: frm.doc.customer_name || "Test User",
+                    email: frm.doc.email || "demo@example.com",
+                    contact: frm.doc.mobile || "9000000000"
+                },
+                theme: {
+                    color: "#3399cc"
+                },
+                modal: {
+                    ondismiss: function () {
+                        frappe.msgprint("You closed the Razorpay popup.");
+                    }
+                },
+                handler: function (response) {
+                    // Save the payment ID into the DocType
+                    frappe.call({
+                        method: "frappe.client.set_value",
+                        args: {
+                            doctype: "Razorpay Test",
+                            name: frm.doc.name,
+                            fieldname: {
+                                payment_id: response.razorpay_payment_id
+                            }
+                        },
+                        callback: function () {
+                            frappe.msgprint("Payment successful! Payment ID saved.");
+                            frm.reload_doc(); // Refresh the form to show updated payment_id
+                        }
+                    });
+                }
+            };
+
+            let rzp = new Razorpay(options);
+            rzp.open();
+        });
+
+        // Show Download Invoice button only if payment_id exists
+        if (frm.doc.payment_id) {
+            frm.add_custom_button('Download Invoice', () => {
+                const url = `/api/method/frappe.utils.print_format.download_pdf?doctype=Razorpay Test&name=${frm.doc.name}&format=Razorpay Invoice Format&no_letterhead=0`;
+                window.open(url);
+            });
+        }
+    }
+});
+
+<!-- your_app/www/razorpay_payment.html -->
+<html>
+<head>
+    <title>Razorpay Payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <h2>Make a Payment</h2>
+    <input id="customer_name" placeholder="Name" />
+    <input id="email" placeholder="Email" />
+    <input id="mobile" placeholder="Mobile" />
+    <input id="amount" placeholder="Amount (₹)" type="number" />
+    <button onclick="makePayment()">Pay Now</button>
+
+    <script>
+        function makePayment() {
+            const name = document.getElementById("customer_name").value;
+            const email = document.getElementById("email").value;
+            const mobile = document.getElementById("mobile").value;
+            const amount = document.getElementById("amount").value * 100;
+
+            const options = {
+                key: "rzp_test_1DP5mmOlF5G5ag",
+                amount: amount || 10000,
+                currency: "INR",
+                name: name || "Test User",
+                description: "Demo Payment",
+                prefill: {
+                    name: name,
+                    email: email,
+                    contact: mobile
+                },
+                handler: function (response) {
+                    frappe.call({
+                        method: "your_app.api.payment.handle_payment",
+                        args: {
+                            payment_id: response.razorpay_payment_id,
+                            customer_name: name,
+                            email: email,
+                            mobile: mobile,
+                            amount: amount / 100
+                        },
+                        callback: function (r) {
+                            frappe.msgprint("Payment recorded successfully!");
+                        }
+                    });
+                },
+                modal: {
+                    ondismiss: function () {
+                        alert("Payment popup closed.");
+                    }
+                }
+            };
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+    </script>
+</body>
+</html>
+
+
+# your_app/hooks.py
+website_route_rules = [
+    {"from_route": "/razorpay-payment", "to_route": "razorpay_payment"}
+]
+
+
+# your_app/api/payment.py
+import frappe
+from frappe.model.document import Document
+from frappe import _
+
+@frappe.whitelist()
+def handle_payment(payment_id, customer_name, email, mobile, amount):
+    # Create a new Razorpay test record
+    doc = frappe.get_doc({
+        "doctype": "Razorpay test",
+        "customer_name": customer_name,
+        "email": email,
+        "mobile": mobile,
+        "currency": amount,
+        "payment_id": payment_id
+    })
+    doc.insert(ignore_permissions=True)
+    frappe.db.commit()
+    return {"status": "success", "name": doc.name}
+
+
+
+    
+          <div class="mb-3">
+            <label for="class" class="form-label">Class:</label>
+            <select id="class" class="form-control" required>
+              <option selected disabled>--select Your Class--</option>
+              <option value="(10th-A)">(10th-A)</option>
+              <option value="(10th-B)">(10th-B)</option>
+              <option value="(10th-C)">(10th-C)</option>
+            </select>
+          </div>
+
+
+
+            if doc.payment_id:
+        return {
+            "status": "success",
+            "message": "Your payment is successful",
+            "payment_id": doc.payment_id,
+            "docname": doc.name
+        }
+    else:
+        return {
+            "status": "failed",
+            "message": "Payment failed. Try again."
+        }
+
+         if (r.message.status === "success") {
+            // Show success message
+            document.getElementById("payment-status").style.display = "block";
+            document.getElementById("payment-message").innerText = r.message.message;
+        } else {
+            // Optional: Show error message in alert or below
+            frappe.msgprint("Payment Failed. Please try again.");
+        }
+
+
+
+        <script>
+  document.getElementById("month_data").addEventListener("change", function () {
+    const studentId = document.getElementById('student_id').value.trim();
+    const studentName = document.getElementById('student_name').value.trim();
+    const month = this.value;
+
+    // Only call backend if all 3 values are filled
+    if (studentId && studentName && month && month !== "-- Select Month --") {
+      frappe.call({
+        method: "frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pre_validate_student",
+        args: {
+          student_id: studentId,
+          student_name: studentName,
+          month: month
+        },
+        callback: function (r) {
+          if (r.message) {
+            console.log("✅ Backend Response:", r.message);
+            // You can also show message on UI if needed
+          }
+        }
+      });
+    } else {
+      console.log("⚠️ Fill Student ID and Name first.");
+    }
+  });
+</script>
+
+
+
+@frappe.whitelist()
+def pre_pay_registor_student(student_id, student_name, month):
+    # Check if record exists
+    exists = frappe.db.exists("Std Fee Registration", {
+        "student_id": student_id,
+        "student_name": student_name,
+        "fee_month": month
+    })
+
+    if exists:
+        # Fetch related fields using frappe.db.sql
+        data = frappe.db.sql("""
+            SELECT
+                student_id,
+                student_name,
+                fee_month,
+                total_amount,
+                paid_amount,
+                balance_amount
+            FROM
+                `tabStd Fee Registration`
+            WHERE
+                student_id = %s AND
+                student_name = %s AND
+                fee_month = %s
+        """, (student_id, student_name, month), as_dict=True)
+
+        return data
+    else:
+        return {"message": "No record found"}
+
+
+
+  callback: function (r) {
+      if (r.message && r.message.length > 0) {
+        let data = r.message[0]; // Getting first object from array
+
+        // Set values to matching form fields
+        $('#phone_no').val(data.phone_no);
+        $('#email_id').val(data.email);
+        $('#class_section').val(data.class);
+        $('#fee_amount').val(data.fee_amount);
+      } else {
+        // Optional: clear fields if no data
+        $('#phone_no').val('');
+        $('#email_id').val('');
+        $('#class_section').val('--select Your Class--');
+        $('#fee_amount').val('');
+        frappe.msgprint('No record found for given student.');
+      }
+    }
+  });
+
+
+
+     # Update payment_id in existing Std Fee Registration record
+    existing_reg = frappe.db.exists("Std Fee Registration", {
+        "student_id": student_id,
+        "student_name": student_name,
+        "class": class_section,
+        "phone_no": phone_no,
+        "email": email,
+        "fee_month": month,
+        "fee_amount": fee_amount
+    })
+
+    if existing_reg:
+        reg_doc = frappe.get_doc("Std Fee Registration", existing_reg)
+        reg_doc.status = "Paid"
+        reg_doc.payment_id = payment_id
+        reg_doc.save(ignore_permissions=True)
+
+    frappe.db.commit()
+
+
+
+
+    from frappe.utils import get_url
+
+@frappe.whitelist()
+def get_pay_data(query=None):
+    records = frappe.get_all(
+        "Std Fee Registration",
+        fields=[
+            "name",
+            "student_id", 
+            "student_name", 
+            "class", 
+            "phone_no", 
+            "email", 
+            "fee_month", 
+            "fee_amount", 
+            "status", 
+            "payment_id"
+        ],
+        order_by="creation desc"
+    )
+
+    # If payment done, attach Razorpay invoice download URL
+    for record in records:
+        if record.payment_id:
+            record["invoice_url"] = f"/api/method/frappe.utils.print_format.download_pdf?doctype=Std Fee Registration&name={record.name}&format=Razorpay Invoice Format&no_letterhead=0"
+        else:
+            record["invoice_url"] = None
+
+    return records
+
+
+    <!-- Assume you're looping the records in frontend -->
+<button class="btn btn-success"
+  onclick="window.open('{{ record.invoice_url }}')"
+  {% if not record.invoice_url %} disabled {% endif %}>
+  Download Invoice
+</button>
+
+
+
+if (record.invoice_url) {
+    const button = `<button class="btn btn-primary" onclick="window.open('${record.invoice_url}')">Download Invoice</button>`;
+    // append this button to your HTML table/list
+}
+
+
+<td>
+            ${m.invoice_url 
+                ? `<button class="btn btn-sm btn-success" onclick="window.open('${m.invoice_url}', '_blank')">Download Invoice</button>` 
+                : 'Not Found'
+            }
+        </td>
+
+
+
+        # custom_app/overrides/news_article.py
+import frappe
+from frappe.model.document import Document
+
+class CustomNewsArticle(Document):
+    def validate(self):
+        if not self.title:
+            frappe.throw("Title is required!")
+
+        if not self.status:
+            self.status = "Draft"
+
+
+override_doctype_class = {
+    "News Article": "custom_app.overrides.news_article.CustomNewsArticle"
+}
+
+
+override_doctype_class = {
+    "News Article": "custom_app.overrides.news_article.CustomNewsArticle"
+}

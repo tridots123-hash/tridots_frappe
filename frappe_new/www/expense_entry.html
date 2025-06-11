@@ -1,0 +1,30 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<h2 class="mb-4">My Expense Entries</h2>
+<table class="table table-bordered">
+   <thead class="table-light">
+       <tr>
+         <th>Date</th>
+         <th>Title</th>
+         <th>Amount</th>
+         <th>Status</th>
+       </tr>
+   </thead>
+   <tbody>
+    {% for exp in expenses %}
+    <tr>
+        <!-- <td>{{frappe.format(exp.expense_date,{'fieldtype': 'Date'})}}</td> -->
+        <td>{{ frappe.format_date(exp.expense_date) }}</td>
+        <td>{{frappe.format(exp.name)}}</td>
+        <td class="text-end">
+          {{ frappe.format(exp.amount,
+              {'fieldtype': 'Currency', 'options': 'INR'}, exp) }}
+        </td>
+        <td>{{frappe.format(exp.status, 
+            {'fieldtype': 'Data'}) }}
+        </td>
+    </tr>
+    {% endfor %}
+   </tbody>
+</table>
+{% endblock %}

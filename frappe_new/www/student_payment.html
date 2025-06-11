@@ -1,0 +1,167 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="container mt-4">
+ <form id="student_pay">
+  <div class="card shadow rounded-4 p-4" style="max-width: 600px; margin: auto;">
+    <div style="text-align: end;" onclick="window.location.href='/home_work'">
+        <i class="bi bi-x-lg" style="background: red; color: #fff; padding: 3px; border-radius: 50%; font-size: 12px; font-weight: 600; cursor: pointer;"></i>
+    </div>
+    <h4 class="mb-4 text-center"><i class="bi bi-credit-card text-primary"></i> Make a Payment</h4>
+    <div class="row g-3">
+      <div class="col-md-6 mb-2">
+        <label for="student_id" class="form-label">Student ID</label>
+        <input type="text" id="student_id" class="form-control" placeholder="Enter Your Student ID">
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="student_name" class="form-label">Student Name</label>
+        <input type="text" id="student_name" class="form-control" placeholder="Enter Your Student Name">
+      </div>
+       <div class="col-md-6 mb-2">
+        <label for="month_data" class="form-label">Fee Month</label>
+        <select id="month_data" class="form-control">
+          <option selected disabled>-- Select Month --</option>
+          <option>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="phone_no" class="form-label">Phone No</label>
+        <input type="tel" id="phone_no" class="form-control" placeholder="Enter Your Phone No">
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="email_id" class="form-label">Email</label>
+        <input type="email" id="email_id" class="form-control" placeholder="Enter Your Email">
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="class_section" class="form-label">Class</label>
+        <select id="class_section" class="form-control" required>
+              <option selected disabled>--select Your Class--</option>
+              <option value="(10th-A)">(10th-A)</option>
+              <option value="(10th-B)">(10th-B)</option>
+              <option value="(10th-C)">(10th-C)</option>
+        </select>
+      </div>
+      <div class="col-12 mb-2">
+        <label for="fee_amount" class="form-label">Fee Amount</label>
+        <input type="text" id="fee_amount" class="form-control" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" placeholder="Enter Your Fee Amount">
+      </div>
+    </div>
+    <div class="d-grid d-flex mt-4 justify-content-between">
+      <button class="btn btn-primary rounded-pill" type="submit"><i class="bi bi-cash-coin"></i> Pay Now</button>
+      <div id="payment-success" style="display: none;">
+        <i class="bi bi-check-circle-fill text-success me-1" style="font-size: 14px;"></i>
+        <span style="font-size: 14px;" id="payment-message"></span>
+      </div>
+       <div id="payment-failed" style="display: none;">
+        <i class="bi bi-x-circle-fill text-success me-1" style="font-size: 14px;"></i>
+        <span style="font-size: 14px;" id="payment-message"></span>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.getElementById("month_data").addEventListener("change", function () {
+        const StudentId = document.getElementById("student_id").value.trim();
+        const studentName = document.getElementById('student_name').value.trim();
+        const Month = this.value;
+        if (StudentId && studentName && Month && Month !== "-- Select Month --") {
+           frappe.call({
+             method: "frappe_new.frappe_new_title.doctype.student_fee_pay.student_fee_pay.pre_pay_registor_student",
+             args: {
+                student_id: StudentId,
+                student_name: studentName,
+                month: Month
+             },
+             callback: function (r) {
+                if (r.message && r.message.length > 0) {
+                   let data = r.message[0];
+                   $('#phone_no').val(data.phone_no);
+                   $('#email_id').val(data.email);
+                   $('#class_section').val(data.class);
+                   $('#fee_amount').val(data.fee_amount);
+                } else {
+                   $('#phone_no').val('');
+                   $('#email_id').val('');
+                   $('#class_section').val('');
+                   $('#fee_amount').val('');
+                }
+             }
+           })
+        }
+    })
+    document.getElementById("student_pay").addEventListener("submit", function (e) {
+        e.preventDefault()
+        const StudentId = document.getElementById("student_id").value;
+        const StudentName = document.getElementById("student_name").value;
+        const Month = document.getElementById("month_data").value;
+        const Class = document.getElementById("class_section").value;
+        const Phone = document.getElementById("phone_no").value;
+        const Email = document.getElementById("email_id").value;
+        const FeeAmount = document.getElementById("fee_amount").value;
+
+        const options = {
+            key: "rzp_test_1DP5mmOlF5G5ag",
+            amount: FeeAmount * 100 || 10000,
+            currency: "INR",
+            name: StudentName,
+            description: "Demo Payment",
+            prefill: {
+                name: StudentName,
+                email: Email,
+                contact: Phone
+            },
+            handler: function (response) {
+                frappe.call({
+                    method: "frappe_new.frappe_new_title.doctype.student_fee_pay.student_fee_pay.handle_payment",
+                    args: {
+                        payment_id: response.razorpay_payment_id,
+                        student_id: StudentId,
+                        student_name: StudentName,
+                        month: Month,
+                        class_section: Class,
+                        phone_no: Phone,
+                        email: Email,
+                        fee_amount: FeeAmount
+                    },
+                    callback: function (r) {
+                      if (r.message.status === "success") {
+                        document.getElementById("payment-success").style.display = "block"
+                        document.getElementById("payment-failed").style.display = "none"
+                        document.getElementById("payment-message").innerText = r.message.status
+                        frappe.msgprint(r.message.message)
+                      }
+                      else if (r.message.status === "failed") {
+                        document.getElementById("payment-success").style.display = "none"
+                        document.getElementById("payment-failed").style.display = "block"
+                        document.getElementById("payment-message").innerText = r.message.status
+                        frappe.msgprint(r.message.message)
+                      }
+                    }
+                });
+            },
+            modal: {
+               ondismiss: function () {
+                  alert("Payment popup closed.");
+               }
+            }
+        };
+        const rzp = new Razorpay(options);
+        rzp.open();
+    })
+</script>
+{% endblock %}

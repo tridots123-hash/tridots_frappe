@@ -1,0 +1,397 @@
+frappe.ui.form.on('News Alert', {
+    onload(frm) {
+        if (!frm.doc.date) {
+            frm.set_value('date', frappe.datetime.get_today());
+        }
+    },
+
+    validate(frm) {
+        if (!frm.doc.title || !frm.doc.description) {
+            frappe.throw('Title and Description are required');
+        }
+    },
+
+    is_active(frm) {
+        if (frm.doc.is_active) {
+            frappe.msgprint('This news alert is active');
+        }
+    }
+});
+
+
+frappe.ui.form.on('My Task', {
+    refresh(frm) {
+        if (frm.doc.reference_type && frm.doc.reference_name) {
+            frm.add_custom_button(frm.doc.reference_name, function () {
+                frappe.set_route('Form', frm.doc.reference_type, frm.doc.reference_name);
+            });
+        }
+    }
+});
+
+frappe.ui.form.on('My Quotation Item', {
+    item_code(frm, cdt, cdn) {
+        let row = frappe.get_doc(cdt, cdn);
+        if (row.item_code) {
+            frappe.db.get_doc('Item', row.item_code).then(item => {
+                frappe.model.set_value(cdt, cdn, 'item_name', item.item_name);
+                frappe.model.set_value(cdt, cdn, 'rate', item.standard_rate);
+            });
+        }
+    }
+});
+
+
+frappe.ui.form.on('Project Task', {
+    refresh(frm) {
+        if (frm.doc.docstatus === 0 && !frm.custom_due_date_ctrl) {
+            let $wrap = $('<div class="my-control mb-3"></div>').appendTo(frm.fields_dict.title.$wrapper);
+            frm.custom_due_date_ctrl = frappe.ui.form.make_control({
+                parent: $wrap,
+                df: {
+                    label: 'Temp Due Date',
+                    fieldname: 'temp_due_date',
+                    fieldtype: 'Date'
+                },
+                render_input: true
+            });
+            frm.custom_due_date_ctrl.$input.on('change', () => {
+                console.log('Picked:', frm.custom_due_date_ctrl.get_value());
+            });
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+// school_app/
+//  └── school_app/
+//      ├── www/
+//      │   └── student_records/
+//      │        ├── index.html   <-- UI markup
+//      │        ├── index.js     <-- JS logic
+//      │        └── index.py     <-- (optional) Python helpers
+//      └── doctype/
+//          └── student/
+//              ├── student.json
+//              └── student.py
+// ``` :contentReference[oaicite:0]{index=0}  
+
+// ---
+
+// ## 3️⃣  `index.html` – pure HTML + TailwindCSS (no `<head>` / `<body>` tags)
+
+// ```html
+// <h1 class="text-3xl font-bold mb-4">My School – Student Records</h1>
+
+// <button id="add-btn"
+//         class="bg-blue-600 text-white rounded px-4 py-2 mb-4">
+//     ➕ Add Student
+// </button>
+
+// <!-- Table -->
+// <table id="students-tbl" class="min-w-full border">
+//   <thead class="bg-gray-100">
+//     <tr>
+//       <th class="px-2 py-1">Name</th>
+//       <th class="px-2 py-1">Class</th>
+//       <th class="px-2 py-1">Marks</th>
+//       <th class="px-2 py-1">Pass/Fail</th>
+//       <th class="px-2 py-1">Actions</th>
+//     </tr>
+//   </thead>
+//   <tbody></tbody>
+// </table>
+
+
+
+
+
+// // utilities
+// function load_students() {
+//     frappe.call({
+//         method: "frappe.client.get_list",
+//         args: {
+//             doctype: "Student",
+//             fields: ["name", "student_name", "student_class",
+//                      "marks", "pass_fail"],
+//             limit_page_length: 100,
+//             order_by: "modified desc"
+//         },
+//         callback: ({ message }) => render_table(message)
+//     });
+// }
+
+// function render_table(records) {
+//     const tbody = $("#students-tbl tbody");
+//     tbody.empty();
+//     records.forEach(rec => {
+//         tbody.append(`
+//           <tr class="border-t">
+//             <td class="px-2 py-1">${frappe.utils.escape_html(rec.student_name)}</td>
+//             <td class="px-2 py-1">${rec.student_class}</td>
+//             <td class="px-2 py-1">${rec.marks}</td>
+//             <td class="px-2 py-1">${rec.pass_fail}</td>
+//             <td class="px-2 py-1">
+//                <button class="edit-btn bg-yellow-500 text-white rounded px-2"
+//                        data-name="${rec.name}">Edit</button>
+//             </td>
+//           </tr>`);
+//     });
+// }
+
+// // Dialog builder (re-used for Add + Edit)
+// function open_dialog(title, doc = null) {
+//     const d = new frappe.ui.Dialog({
+//         title,
+//         fields: [
+//             { fieldname: "student_name", label: "Student Name", fieldtype: "Data",
+//               reqd: 1, default: doc?.student_name },
+//             { fieldname: "student_class", label: "Class", fieldtype: "Select",
+//               options: "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12",
+//               default: doc?.student_class },
+//             { fieldname: "marks", label: "Marks", fieldtype: "Int",
+//               default: doc?.marks },
+//             { fieldname: "pass_fail", label: "Pass / Fail", fieldtype: "Select",
+//               options: "Pass\nFail", default: doc?.pass_fail }
+//         ],
+//         primary_action_label: "Submit",
+//         primary_action(values) {
+//             if (doc) {
+//                 // UPDATE
+//                 frappe.call({
+//                     method: "frappe.client.set_value",
+//                     args: {
+//                         doctype: "Student",
+//                         name: doc.name,
+//                         fieldname: Object.keys(values),
+//                         value: Object.values(values)
+//                     },
+//                     callback: () => { d.hide(); load_students(); }
+//                 });
+//             } else {
+//                 // INSERT
+//                 frappe.call({
+//                     method: "frappe.client.insert",
+//                     args: {
+//                         doc: { doctype: "Student", ...values }
+//                     },
+//                     callback: () => { d.hide(); load_students(); }
+//                 });
+//             }
+//         }
+//     });
+//     d.show();
+// }
+
+// // page ready
+// frappe.ready(() => {
+//     load_students();
+
+//     // Add button
+//     $("#add-btn").on("click", () => open_dialog("Add Student"));
+
+//     // delegate edit buttons
+//     $(document).on("click", ".edit-btn", function () {
+//         const name = $(this).data("name");
+//         frappe.call({
+//             method: "frappe.client.get",
+//             args: { doctype: "Student", name },
+//             callback: ({ message }) => open_dialog("Edit Student", message)
+//         });
+//     });
+// });
+// ``` :contentReference[oaicite:1]{index=1}  
+
+// ---
+
+// ## 5️⃣  (Optional) `index.py` – custom Python endpoints
+
+// You **don’t need** extra Python because we used built-in `frappe.client` methods.  
+// If you later require business rules (e.g., auto-grade), add whitelisted functions:
+
+// ```python
+// # school_app/www/student_records/index.py
+// import frappe
+
+// @frappe.whitelist()
+// def grade_student(name):
+//     doc = frappe.get_doc("Student", name)
+//     doc.pass_fail = "Pass" if doc.marks >= 40 else "Fail"
+//     doc.save()
+//     return {"status": "updated"}
+
+
+
+
+
+// import frappe
+// from frappe.model.document import Document
+
+// class Student(Document):
+//     def validate(self):
+//         # Auto set pass/fail during save
+//         if self.marks is not None:
+//             self.pass_fail = "Pass" if self.marks >= 40 else "Fail"
+
+// # Optional: expose as API
+// @frappe.whitelist()
+// def grade_student(name):
+//     doc = frappe.get_doc("Student", name)
+//     doc.pass_fail = "Pass" if doc.marks >= 40 else "Fail"
+//     doc.save()
+//     return {"status": "graded"}
+
+
+
+
+(function () {
+  function row_html(doc) {
+    const tag = doc.pass_fail === "Pass"
+      ? `<span class="badge text-bg-success">Pass</span>`
+      : `<span class="badge text-bg-danger">Fail</span>`;
+
+    return `
+      <tr data-name="${doc.name}">
+        <td>${frappe.utils.escape_html(doc.student_name)}</td>
+        <td>${doc.student_class}</td>
+        <td>${doc.marks}</td>
+        <td>${tag}</td>
+        <td>
+          <button class="btn btn-sm btn-edit me-1 edit-btn" data-name="${doc.name}">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button class="btn btn-sm btn-delete delete-btn" data-name="${doc.name}">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>`;
+  }
+
+  function load_students() {
+    frappe.call({
+      method: "frappe.client.get_list",
+      args: {
+        doctype: "Student",
+        fields: ["name", "student_name", "student_class", "marks", "pass_fail"],
+        limit_page_length: 100,
+        order_by: "modified desc"
+      },
+      callback: ({ message }) => {
+        const rows = message.map(row_html).join("");
+        $("#student-body").html(rows);
+      }
+    });
+  }
+
+  function load_students() {
+  frappe.call({
+    method: "frappe.client.get_list",
+    args: {
+      doctype: "StudentMarkRecords",
+      fields: ["name", "student_name", "student_class", "marks", "pass_fail"],
+      order_by: "modified desc"
+    },
+    callback: ({ message }) => {
+      const rows = message.map(row_html).join("");
+      $("#student-body").html(rows);
+    }
+  });
+}
+
+frappe.call({
+  method: "frappe_new.frappe_new_title.doctype.student_mark_records.student_mark_records.get_top_students",
+  callback: function (r) {
+    console.log(r.message);
+  }
+});
+
+
+import frappe
+
+@frappe.whitelist()
+def get_top_students(limit=5):
+    students = frappe.get_all(
+        "StudentMarkRecords",
+        fields=["student_name", "student_class", "marks", "pass_fail"],
+        filters={"pass_fail": "Pass"},
+        order_by="marks desc",
+        limit_page_length=int(limit)
+    )
+    return students
+
+
+
+  function open_dialog(title, doc = null) {
+    const d = new frappe.ui.Dialog({
+      title,
+      fields: [
+        { fieldname: "student_name", label: "Student Name", fieldtype: "Data", reqd: 1, default: doc?.student_name },
+        { fieldname: "student_class", label: "Class", fieldtype: "Select", options: "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12", default: doc?.student_class },
+        { fieldname: "marks", label: "Marks", fieldtype: "Int", default: doc?.marks },
+        { fieldname: "pass_fail", label: "Pass / Fail", fieldtype: "Select", options: "Pass\nFail", default: doc?.pass_fail }
+      ],
+      primary_action_label: "Submit",
+      primary_action(values) {
+        if (doc) {
+          frappe.call({
+            method: "frappe.client.set_value",
+            args: {
+              doctype: "Student",
+              name: doc.name,
+              fieldname: Object.keys(values),
+              value: Object.values(values)
+            },
+            callback: () => { d.hide(); load_students(); }
+          });
+        } else {
+          frappe.call({
+            method: "frappe.client.insert",
+            args: {
+              doc: { doctype: "Student", ...values }
+            },
+            callback: () => { d.hide(); load_students(); }
+          });
+        }
+      }
+    });
+    d.show();
+  }
+
+  function delete_student(name) {
+    frappe.confirm("Delete this record?", () => {
+      frappe.call({
+        method: "frappe.client.delete",
+        args: { doctype: "Student", name },
+        callback: load_students
+      });
+    });
+  }
+
+  frappe.ready(() => {
+    load_students();
+
+    $("#add-btn").on("click", () => open_dialog("Add Student"));
+
+    $(document).on("click", ".edit-btn", function () {
+      const name = $(this).data("name");
+      frappe.call({
+        method: "frappe.client.get",
+        args: { doctype: "Student", name },
+        callback: ({ message }) => open_dialog("Edit Student", message)
+      });
+    });
+
+    $(document).on("click", ".delete-btn", function () {
+      delete_student($(this).data("name"));
+    });
+  });
+})();
+

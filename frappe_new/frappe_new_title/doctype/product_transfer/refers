@@ -1,0 +1,14 @@
+def validate(self):
+    settings = frappe.get_single("Settings")
+    max_total = settings.max_total_qty_per_transaction
+    max_per_product = settings.max_qty_per_product
+
+    total_qty = 0
+
+    for row in self.products_transferred:
+        if row.quantity > max_per_product:
+            frappe.throw(f"Qty {row.quantity} for {row.product_code} > max {max_per_product}")
+        total_qty += row.quantity
+
+    if total_qty > max_total:
+        frappe.throw(f"Total qty {total_qty} > max allowed {max_total}")

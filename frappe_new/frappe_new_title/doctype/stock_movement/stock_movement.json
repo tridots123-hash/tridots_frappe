@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-05-27 12:57:02.358977",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "from_location",
+  "transaction_date",
+  "products_transferred"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_location",
+   "fieldtype": "Link",
+   "label": "From Location",
+   "options": "Location"
+  },
+  {
+   "default": "Today",
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "label": "Transaction Date"
+  },
+  {
+   "fieldname": "products_transferred",
+   "fieldtype": "Table",
+   "label": "Products Transferred",
+   "options": "Stock Movement Item"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-27 13:10:04.289835",
+ "modified_by": "Administrator",
+ "module": "frappe-new-title",
+ "name": "Stock Movement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
