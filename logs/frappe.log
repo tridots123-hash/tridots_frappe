@@ -1,0 +1,656 @@
+2025-06-03 10:22:08,861 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Home Work","name":"new-home-work-oxndljolys","__islocal":1,"__unsaved":1,"owner":"Administrator","subject":"Tamil","class":"(10th-A)","status":"Pending","teacher_name":"S.Arun Kumar","description":"தலைப்பு: என் பள்ளி\\nவாக்கியங்கள்:\\nஎன் பள்ளி பெரியதும் அழகானதும் ஆகும்.\\nநான் என் பள்ளிக்குச் செல்வதை விரும்புகிறேன்.","created_at":"2025-06-03"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-03 11:00:51,865 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'm', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:35,031 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'B', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:35,366 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Bl', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:35,541 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Bla', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:36,594 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Blaj', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:36,944 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Blaji', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:37,679 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Blaj', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:37,805 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Bla', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:37,943 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Bl', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:38,056 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'B', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:38,601 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Ba', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:38,829 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Bal', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:38,970 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Bala', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:39,207 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Balaj', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:02:39,405 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Balaji', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:03:43,870 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'B', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:03:44,085 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Ba', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:03:44,866 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Bal', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:03:45,044 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Bala', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:03:45,208 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Balaj', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:03:45,371 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'Balaji', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:07:58,540 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'h', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:07:58,556 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'hi', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:08:23,612 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'h', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:08:23,815 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'hi', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:13:31,442 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'b', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:13:31,462 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'ba', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:14:46,777 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'b', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 11:14:46,857 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'ba', 'cmd': 'frappe_new.frappe_new_title.doctype.home_work.home_work.get_task'}
+2025-06-03 13:41:34,284 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'report_name': 'Home Work Dashboard', 'filters': '{}', 'ignore_prepared_report': 'false', 'are_default_filters': 'true', 'cmd': 'frappe.desk.query_report.run'}
+2025-06-03 13:42:01,963 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'report_name': 'Home Work Dashboard', 'filters': '{}', 'ignore_prepared_report': 'false', 'are_default_filters': 'true', 'cmd': 'frappe.desk.query_report.run'}
+2025-06-03 14:10:05,224 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'report_name': 'Home Work Dashboard', 'filters': '{}', 'ignore_prepared_report': 'false', 'are_default_filters': 'true', 'cmd': 'frappe.desk.query_report.run'}
+2025-06-04 09:39:13,106 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doctype': 'Razorpay Test', 'name': 'Raz-001', 'format': 'Razorpay Invoice Format', 'no_letterhead': '0', 'cmd': 'frappe.utils.print_format.download_pdf'}
+2025-06-04 09:40:04,462 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doctype': 'Razorpay Test', 'name': 'Raz-001', 'format': 'Razorpay Invoice Format', 'no_letterhead': '0', 'cmd': 'frappe.utils.print_format.download_pdf'}
+2025-06-04 09:42:24,614 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doctype': 'Razorpay Test', 'name': 'Raz-001', 'format': 'Razorpay Invoice Format', 'no_letterhead': '0', 'cmd': 'frappe.utils.print_format.download_pdf'}
+2025-06-04 09:44:22,358 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doctype': 'Razorpay Test', 'name': 'Raz-001', 'format': 'Razorpay Invoice Format', 'no_letterhead': '0', 'cmd': 'frappe.utils.print_format.download_pdf'}
+2025-06-05 06:07:33,341 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doctype': 'Student Fee Pay', 'with_parent': '1', 'cached_timestamp': '', 'cmd': 'frappe.desk.form.load.getdoctype'}
+2025-06-05 06:11:55,414 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'payment_id': 'pay_QdPYJS8QZbmo6T', 'student_id': '106U0209035', 'student_name': 'M.Mohammed Imran', 'month': 'January', 'class_section': '(10th-A)', 'phone_no': '6383026412', 'email': 'imranameen045@gmail.com', 'fee_amount': '600', 'cmd': 'frappe_new.frappe_new_title.doctype.student_fee_pay.student_fee_pay.handle_payment'}
+2025-06-05 12:04:25,305 ERROR frappe Could not take error snapshot: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+Site: imransite
+Form Dict: {'doc': '{"name":"Std Fee Registration","creation":"2025-06-05 16:27:46.688287","modified":"2025-06-05 16:35:45.441487","modified_by":"Administrator","owner":"Administrator","docstatus":0,"idx":0,"issingle":0,"is_virtual":0,"is_tree":0,"istable":0,"editable_grid":0,"track_changes":0,"module":"frappe-new-title","naming_rule":"","sort_field":"modified","sort_order":"DESC","read_only":0,"in_create":0,"allow_copy":0,"allow_rename":1,"allow_import":0,"hide_toolbar":0,"track_seen":0,"max_attachments":0,"document_type":"","engine":"InnoDB","is_submittable":0,"show_name_in_global_search":0,"custom":0,"beta":0,"has_web_view":0,"allow_guest_to_view":0,"email_append_to":0,"show_title_field_in_link":0,"translated_doctype":0,"is_calendar_and_gantt":0,"quick_entry":0,"grid_page_length":50,"track_views":0,"queue_in_background":0,"allow_events_in_timeline":0,"allow_auto_repeat":0,"make_attachments_public":0,"force_re_route_to_default_view":0,"show_preview_popup":0,"protect_attached_files":0,"index_web_pages_for_search":1,"row_format":"Dynamic","doctype":"DocType","fields":[{"name":"h2uugbj12c","creation":"2025-06-05 16:27:46.688287","modified":"2025-06-05 16:35:45.441487","modified_by":"Administrator","owner":"Administrator","docstatus":0,"parent":"Std Fee Registration","parentfield":"fields","parenttype":"DocType","idx":1,"fieldname":"student_id","label":"Student ID","fieldtype":"Data","search_index":0,"show_dashboard":0,"hidden":0,"set_only_once":0,"allow_in_quick_entry":0,"print_hide":0,"report_hide":0,"reqd":1,"bold":0,"in_global_search":0,"collapsible":0,"unique":0,"no_copy":0,"allow_on_submit":0,"show_preview_popup":0,"permlevel":0,"ignore_user_permissions":0,"columns":0,"in_list_view":1,"fetch_if_empty":0,"in_filter":0,"remember_last_selected_value":0,"ignore_xss_filter":0,"print_hide_if_no_value":0,"allow_bulk_edit":0,"in_standard_filter":0,"in_preview":0,"read_only":0,"precision":"","length":0,"translatable":0,"hide_border":0,"hide_days":0,"hide_seconds":0,"non_negative":0,"is_virtual":0,"sort_options":0,"show_on_timeline":0,"make_attachment_public":0,"doctype":"DocField"},{"name":"h2ud12gsul","creation":"2025-06-05 16:27:46.688287","modified":"2025-06-05 16:35:45.441487","modified_by":"Administrator","owner":"Administrator","docstatus":0,"parent":"Std Fee Registration","parentfield":"fields","parenttype":"DocType","idx":2,"fieldname":"student_name","label":"Student Name","fieldtype":"Data","search_index":0,"show_dashboard":0,"hidden":0,"set_only_once":0,"allow_in_quick_entry":0,"print_hide":0,"report_hide":0,"reqd":1,"bold":0,"in_global_search":0,"collapsible":0,"unique":0,"no_copy":0,"allow_on_submit":0,"show_preview_popup":0,"permlevel":0,"ignore_user_permissions":0,"columns":0,"in_list_view":1,"fetch_if_empty":0,"in_filter":0,"remember_last_selected_value":0,"ignore_xss_filter":0,"print_hide_if_no_value":0,"allow_bulk_edit":0,"in_standard_filter":0,"in_preview":0,"read_only":0,"precision":"","length":0,"translatable":0,"hide_border":0,"hide_days":0,"hide_seconds":0,"non_negative":0,"is_virtual":0,"sort_options":0,"show_on_timeline":0,"make_attachment_public":0,"doctype":"DocField"},{"name":"h2uojsamjj","creation":"2025-06-05 16:27:46.688287","modified":"2025-06-05 16:35:45.441487","modified_by":"Administrator","owner":"Administrator","docstatus":0,"parent":"Std Fee Registration","parentfield":"fields","parenttype":"DocType","idx":3,"fieldname":"class","label":"Class","fieldtype":"Select","options":"(10th-A)\\n(10th-B)\\n(10th-C)","search_index":0,"show_dashboard":0,"hidden":0,"set_only_once":0,"allow_in_quick_entry":0,"print_hide":0,"report_hide":0,"reqd":1,"bold":0,"in_global_search":0,"collapsible":0,"unique":0,"no_copy":0,"allow_on_submit":0,"show_preview_popup":0,"permlevel":0,"ignore_user_permissions":0,"columns":0,"in_list_view":1,"fetch_if_empty":0,"in_filter":0,"remember_last_selected_value":0,"ignore_xss_filter":0,"print_hide_if_no_value":0,"allow_bulk_edit":0,"in_standard_filter":0,"in_preview":0,"read_only":0,"precision":"","length":0,"translatable":0,"hide_border":0,"hide_days":0,"hide_seconds":0,"non_negative":0,"is_virtual":0,"sort_options":0,"show_on_timeline":0,"make_attachment_public":0,"doctype":"DocField"},{"name":"h2use41u54","creation":"2025-06-05 16:27:46.688287","modified":"2025-06-05 16:35:45.441487","modified_by":"Administrator","owner":"Administrator","docstatus":0,"parent":"Std Fee Registration","parentfield":"fields","parenttype":"DocType","idx":4,"fieldname":"phone_no","label":"Phone No","fieldtype":"Data","search_index":0,"show_dashboard":0,"hidden":0,"set_only_once":0,"allow_in_quick_entry":0,"print_hide":0,"report_hide":0,"reqd":0,"bold":0,"in_global_search":0,"collapsible":0,"unique":0,"no_copy":0,"allow_on_submit":0,"show_preview_popup":0,"permlevel":0,"ignore_user_permissions":0,"columns":0,"in_list_view":0,"fetch_if_empty":0,"in_filter":0,"remember_last_selected_value":0,"ignore_xss_filter":0,"print_hide_if_no_value":0,"allow_bulk_edit":0,"in_standard_filter":0,"in_preview":0,"read_only":0,"precision":"","length":0,"translatable":0,"hide_border":0,"hide_days":0,"hide_seconds":0,"non_negative":0,"is_virtual":0,"sort_options":0,"show_on_timeline":0,"make_attachment_public":0,"doctype":"DocField"},{"name":"h2uioa527s","creation":"2025-06-05 16:27:46.688287","modified":"2025-06-05 16:35:45.441487","modified_by":"Administrator","owner":"Administrator","docstatus":0,"parent":"Std Fee Registration","parentfield":"fields","parenttype":"DocType","idx":5,"fieldname":"email","label":"Email","fieldtype":"Data","search_index":0,"show_dashboard":0,"hidden":0,"set_only_once":0,"allow_in_quick_entry":0,"print_hide":0,"report_hide":0,"reqd":0,"bold":0,"in_global_search":0,"collapsible":0,"unique":0,"no_copy":0,"allow_on_submit":0,"show_preview_popup":0,"permlevel":0,"ignore_user_permissions":0,"columns":0,"in_list_view":0,"fetch_if_empty":0,"in_filter":0,"remember_last_selected_value":0,"ignore_xss_filter":0,"print_hide_if_no_value":0,"allow_bulk_edit":0,"in_standard_filter":0,"in_preview":0,"read_only":0,"precision":"","length":0,"translatable":0,"hide_border":0,"hide_days":0,"hide_seconds":0,"non_negative":0,"is_virtual":0,"sort_options":0,"show_on_timeline":0,"make_attachment_public":0,"doctype":"DocField"},{"name":"h2u8tnb0fe","creation":"2025-06-05 16:27:46.688287","modified":"2025-06-05 16:35:45.441487","modified_by":"Administrator","owner":"Administrator","docstatus":0,"parent":"Std Fee Registration","parentfield":"fields","parenttype":"DocType","idx":6,"fieldname":"fee_month","label":"Fee Month","fieldtype":"Select","options":"January\\nFebruary\\nMarch\\nApril\\nMay\\nJune\\nJuly\\nAugust\\nSeptember\\nOctober\\nNovember\\nDecember","search_index":0,"show_dashboard":0,"hidden":0,"set_only_once":0,"allow_in_quick_entry":0,"print_hide":0,"report_hide":0,"reqd":0,"bold":0,"in_global_search":0,"collapsible":0,"unique":0,"no_copy":0,"allow_on_submit":0,"show_preview_popup":0,"permlevel":0,"ignore_user_permissions":0,"columns":0,"in_list_view":0,"fetch_if_empty":0,"in_filter":0,"remember_last_selected_value":0,"ignore_xss_filter":0,"print_hide_if_no_value":0,"allow_bulk_edit":0,"in_standard_filter":0,"in_preview":0,"read_only":0,"precision":"","length":0,"translatable":0,"hide_border":0,"hide_days":0,"hide_seconds":0,"non_negative":0,"is_virtual":0,"sort_options":0,"show_on_timeline":0,"make_attachment_public":0,"doctype":"DocField"},{"name":"h2udtgbhgb","creation":"2025-06-05 16:27:46.688287","modified":"2025-06-05 16:35:45.441487","modified_by":"Administrator","owner":"Administrator","docstatus":0,"parent":"Std Fee Registration","parentfield":"fields","parenttype":"DocType","idx":7,"fieldname":"fee_amount","label":"Fee Amount","fieldtype":"Currency","search_index":0,"show_dashboard":0,"hidden":0,"set_only_once":0,"allow_in_quick_entry":0,"print_hide":0,"report_hide":0,"reqd":0,"bold":0,"in_global_search":0,"collapsible":0,"unique":0,"no_copy":0,"allow_on_submit":0,"show_preview_popup":0,"permlevel":0,"ignore_user_permissions":0,"columns":0,"in_list_view":0,"fetch_if_empty":0,"in_filter":0,"remember_last_selected_value":0,"ignore_xss_filter":0,"print_hide_if_no_value":0,"allow_bulk_edit":0,"in_standard_filter":0,"in_preview":0,"read_only":0,"precision":"","length":0,"translatable":0,"hide_border":0,"hide_days":0,"hide_seconds":0,"non_negative":0,"is_virtual":0,"sort_options":0,"show_on_timeline":0,"make_attachment_public":0,"doctype":"DocField"},{"name":"h2u8700vso","creation":"2025-06-05 16:27:46.688287","modified":"2025-06-05 16:35:45.441487","modified_by":"Administrator","owner":"Administrator","docstatus":0,"parent":"Std Fee Registration","parentfield":"fields","parenttype":"DocType","idx":8,"fieldname":"payment_id","label":"Payment ID","fieldtype":"Data","search_index":0,"show_dashboard":0,"hidden":0,"set_only_once":0,"allow_in_quick_entry":0,"print_hide":0,"report_hide":0,"reqd":0,"bold":0,"in_global_search":0,"collapsible":0,"unique":0,"no_copy":0,"allow_on_submit":0,"show_preview_popup":0,"permlevel":0,"ignore_user_permissions":0,"columns":0,"in_list_view":0,"fetch_if_empty":0,"in_filter":0,"remember_last_selected_value":0,"ignore_xss_filter":0,"print_hide_if_no_value":0,"allow_bulk_edit":0,"in_standard_filter":0,"in_preview":0,"read_only":0,"precision":"","length":0,"translatable":0,"hide_border":0,"hide_days":0,"hide_seconds":0,"non_negative":0,"is_virtual":0,"sort_options":0,"show_on_timeline":0,"make_attachment_public":0,"doctype":"DocField"},{"docstatus":0,"doctype":"DocField","name":"new-docfield-eqlsdznaql","__islocal":1,"__unsaved":1,"owner":"Administrator","fieldtype":"Select","precision":"","non_negative":0,"hide_days":0,"hide_seconds":0,"reqd":0,"is_virtual":0,"search_index":0,"sort_options":0,"show_dashboard":0,"fetch_if_empty":0,"hidden":0,"show_on_timeline":0,"bold":0,"allow_in_quick_entry":0,"translatable":0,"print_hide":0,"print_hide_if_no_value":0,"report_hide":0,"collapsible":0,"hide_border":0,"in_list_view":0,"in_standard_filter":0,"in_preview":0,"in_filter":0,"in_global_search":0,"read_only":0,"allow_on_submit":0,"ignore_user_permissions":0,"allow_bulk_edit":0,"make_attachment_public":0,"permlevel":0,"ignore_xss_filter":0,"unique":0,"no_copy":0,"set_only_once":0,"remember_last_selected_value":0,"parent":"Std Fee Registration","parentfield":"fields","parenttype":"DocType","idx":9,"__unedited":false,"label":"Status","options":"Pending\\nSuccess\\nCancel"}],"states":[],"actions":[],"permissions":[{"name":"cdb1pda8ic","creation":"2025-06-05 16:27:46.688287","modified":"2025-06-05 16:35:45.441487","modified_by":"Administrator","owner":"Administrator","docstatus":0,"parent":"Std Fee Registration","parentfield":"permissions","parenttype":"DocType","idx":1,"permlevel":0,"role":"System Manager","read":1,"write":1,"create":1,"submit":0,"cancel":0,"delete":1,"amend":0,"report":1,"export":1,"import":0,"share":1,"print":1,"email":1,"if_owner":0,"select":0,"doctype":"DocPerm"}],"links":[],"__unsaved":1}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 649, in connect
+    sock = socket.create_connection(
+  File "/usr/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/usr/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/app.py", line 115, in application
+    response = frappe.api.handle(request)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/api/__init__.py", line 49, in handle
+    data = endpoint(**arguments)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/api/v1.py", line 36, in handle_rpc_call
+    return frappe.handler.handle()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/handler.py", line 51, in handle
+    data = execute_cmd(cmd)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/handler.py", line 84, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1742, in call
+    return fn(*args, **newargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/typing_validations.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/desk/form/save.py", line 39, in savedocs
+    doc.save()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/document.py", line 378, in save
+    return self._save(*args, **kwargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/document.py", line 403, in _save
+    self._set_defaults()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/document.py", line 836, in _set_defaults
+    new_doc = frappe.new_doc(df.options, parent_doc=self, parentfield=df.fieldname, as_dict=True)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1162, in new_doc
+    new_doc = get_new_doc(doctype, parent_doc, parentfield, as_dict=as_dict)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/create_new.py", line 22, in get_new_doc
+    frappe.local.new_doc_templates[doctype] = make_new_doc(doctype)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/create_new.py", line 44, in make_new_doc
+    if not frappe.model.meta.is_single(doctype):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/meta.py", line 747, in is_single
+    return frappe.db.get_value("DocType", doctype, "issingle")
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 515, in get_value
+    result = self.get_values(
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 619, in get_values
+    out = self._get_values_from_table(
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 892, in _get_values_from_table
+    return query.run(as_dict=as_dict, debug=debug, update=update, run=run, pluck=pluck)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/query_builder/utils.py", line 87, in execute_query
+    result = frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 207, in sql
+    self.connect()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 112, in connect
+    self._conn: "MariadbConnection" | "PostgresConnection" = self.get_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 108, in get_connection
+    conn = self._get_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 114, in _get_connection
+    return self.create_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 117, in create_connection
+    return pymysql.connect(**self.get_connection_settings())
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 716, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 649, in connect
+    sock = socket.create_connection(
+  File "/usr/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/usr/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/error.py", line 86, in log_error_snapshot
+    log_error(title=str(exception), defer_insert=True)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/error.py", line 61, in log_error
+    error_log = frappe.get_doc(
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1305, in get_doc
+    return frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/document.py", line 83, in get_doc
+    controller = get_controller(doctype)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/base_document.py", line 67, in get_controller
+    return import_controller(doctype)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/base_document.py", line 82, in import_controller
+    doctype_info = frappe.db.get_value("DocType", doctype, ("module", "custom", "is_tree"), as_dict=True)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 515, in get_value
+    result = self.get_values(
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 619, in get_values
+    out = self._get_values_from_table(
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 892, in _get_values_from_table
+    return query.run(as_dict=as_dict, debug=debug, update=update, run=run, pluck=pluck)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/query_builder/utils.py", line 87, in execute_query
+    result = frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 207, in sql
+    self.connect()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 112, in connect
+    self._conn: "MariadbConnection" | "PostgresConnection" = self.get_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 108, in get_connection
+    conn = self._get_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 114, in _get_connection
+    return self.create_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 117, in create_connection
+    return pymysql.connect(**self.get_connection_settings())
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 716, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+2025-06-05 13:10:50,257 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.get_pay_data'}
+2025-06-06 06:22:23,696 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'student_id': '1060U09035', 'student_name': 'M.Mohammed Imran', 'month': 'May', 'cmd': 'frappe_new.frappe_new_title.doctype.student_fee_pay.student_fee_pay.pre_pay_registor_student'}
+2025-06-06 07:26:45,917 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.get_pay_data'}
+2025-06-06 07:26:49,722 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.get_pay_data'}
+2025-06-06 10:50:52,875 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.get_pay_data'}
+2025-06-06 10:51:00,353 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.get_pay_data'}
+2025-06-06 11:01:47,095 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'i', 'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor'}
+2025-06-06 11:01:47,154 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'im', 'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor'}
+2025-06-06 11:01:47,284 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'imr', 'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor'}
+2025-06-06 11:01:47,508 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'imra', 'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor'}
+2025-06-06 11:01:47,668 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'imran', 'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor'}
+2025-06-06 11:02:14,724 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'imra', 'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor'}
+2025-06-06 11:02:14,859 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'imr', 'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor'}
+2025-06-06 11:02:14,979 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'im', 'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor'}
+2025-06-06 11:02:15,091 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': 'i', 'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor'}
+2025-06-06 11:02:15,196 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'query': '', 'cmd': 'frappe_new.frappe_new_title.doctype.std_fee_registration.std_fee_registration.pay_registor'}
+2025-06-06 11:15:36,921 ERROR frappe Error while inserting deferred Error Log record: Error Log 2jp0vr8huh: 'Title' (pay_registor() missing 8 required positional arguments: 'student_id', 'student_name', 'month', 'class_section', 'phone_no', 'email', 'fee_amount', and 'status') will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-06 11:15:36,924 ERROR frappe Error while inserting deferred Error Log record: Error Log 2jpeelfj0d: 'Title' (pay_registor() missing 8 required positional arguments: 'student_id', 'student_name', 'month', 'class_section', 'phone_no', 'email', 'fee_amount', and 'status') will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-06 11:15:36,927 ERROR frappe Error while inserting deferred Error Log record: Error Log 2jpobrk5gm: 'Title' (pay_registor() missing 8 required positional arguments: 'student_id', 'student_name', 'month', 'class_section', 'phone_no', 'email', 'fee_amount', and 'status') will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-06 11:15:36,930 ERROR frappe Error while inserting deferred Error Log record: Error Log 2jpqgbrftb: 'Title' (pay_registor() missing 8 required positional arguments: 'student_id', 'student_name', 'month', 'class_section', 'phone_no', 'email', 'fee_amount', and 'status') will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-06 11:15:36,932 ERROR frappe Error while inserting deferred Error Log record: Error Log 2jphu9gvvs: 'Title' (pay_registor() missing 8 required positional arguments: 'student_id', 'student_name', 'month', 'class_section', 'phone_no', 'email', 'fee_amount', and 'status') will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-06 11:15:36,935 ERROR frappe Error while inserting deferred Error Log record: Error Log 2jpm20aijr: 'Title' (pay_registor() missing 8 required positional arguments: 'student_id', 'student_name', 'month', 'class_section', 'phone_no', 'email', 'fee_amount', and 'status') will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-06 11:15:36,938 ERROR frappe Error while inserting deferred Error Log record: Error Log 2jptt0a5js: 'Title' (pay_registor() missing 8 required positional arguments: 'student_id', 'student_name', 'month', 'class_section', 'phone_no', 'email', 'fee_amount', and 'status') will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-06 11:15:36,940 ERROR frappe Error while inserting deferred Error Log record: Error Log 2jp94kui4h: 'Title' (pay_registor() missing 8 required positional arguments: 'student_id', 'student_name', 'month', 'class_section', 'phone_no', 'email', 'fee_amount', and 'status') will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-06 11:15:36,943 ERROR frappe Error while inserting deferred Error Log record: Error Log 2jpkgrp6og: 'Title' (pay_registor() missing 8 required positional arguments: 'student_id', 'student_name', 'month', 'class_section', 'phone_no', 'email', 'fee_amount', and 'status') will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-06 11:15:36,945 ERROR frappe Error while inserting deferred Error Log record: Error Log 2jp51m3e9r: 'Title' (pay_registor() missing 8 required positional arguments: 'student_id', 'student_name', 'month', 'class_section', 'phone_no', 'email', 'fee_amount', and 'status') will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-10 11:45:21,745 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doc': '{"docstatus":0,"doctype":"News Alert","name":"new-news-alert-tyuyhnngyn","__islocal":1,"__unsaved":1,"owner":"Administrator","is_active":1,"date":"2025-06-10","title":"frjr","description":"rrgqg"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-10 11:46:02,510 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doc': '{"docstatus":0,"doctype":"News Alert","name":"new-news-alert-cijjkwlhtj","__islocal":1,"__unsaved":1,"owner":"Administrator","is_active":1,"date":"2025-06-10","title":"vveff","description":"frerfrf"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-10 12:39:23,545 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doctype': 'Student Fee Pay', 'start': '2025-06-01 00:00:00', 'end': '2025-07-13 00:00:00', 'filters': '[]', 'field_map': '{"id":"name","start":"timestamp","end":"timestamp","title":"payment_id","allDay":0}', 'cmd': 'frappe.desk.calendar.get_events'}
+2025-06-10 12:41:17,337 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doctype': 'Student Fee Pay', 'start': '2025-06-01 00:00:00', 'end': '2025-07-13 00:00:00', 'filters': '[]', 'field_map': '{"id":"name","start":"timestamp","end":"timestamp","title":"payment_id","allDay":0}', 'cmd': 'frappe.desk.calendar.get_events'}
+2025-06-10 12:44:23,234 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doctype': 'Student Fee Pay', 'start': '2025-06-01 00:00:00', 'end': '2025-07-13 00:00:00', 'filters': '[]', 'field_map': '{"id":"name","start":"timestamp","end":"timestamp","title":"payment_id","allDay":0}', 'cmd': 'frappe.desk.calendar.get_events'}
+2025-06-11 07:39:54,987 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'report_name': 'Student Fee Summary Report', 'filters': '{}', 'ignore_prepared_report': 'false', 'are_default_filters': 'true', 'cmd': 'frappe.desk.query_report.run'}
+2025-06-11 08:29:06,691 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'month': 'January', 'class_section': '10th-A', 'status': 'Paid', 'cmd': 'frappe_new.api.get_fee_summary'}
+2025-06-11 10:25:40,966 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'report_name': 'Student Fee Summary Report', 'filters': '{}', 'ignore_prepared_report': 'false', 'are_default_filters': 'true', 'cmd': 'frappe.desk.query_report.run'}
+2025-06-11 10:25:40,966 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'report_name': 'Student Fee Summary Report', 'filters': '{}', 'ignore_prepared_report': 'false', 'are_default_filters': 'true', 'cmd': 'frappe.desk.query_report.run'}
+2025-06-11 11:00:09,084 ERROR frappe Could not take error snapshot: unexpected character after line continuation character (hooks.py, line 68)
+Site: imransite
+Form Dict: {'routes': '[{"creation":"2025-06-11 16:30:24","route":"Workspaces/Users"}]'}
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/app.py", line 100, in application
+    init_request(request)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/app.py", line 198, in init_request
+    for before_request_task in frappe.get_hooks("before_request"):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1607, in get_hooks
+    hooks = _dict(_load_app_hooks())
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/caching.py", line 59, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1576, in _load_app_hooks
+    app_hooks = get_module(f"{app}.hooks")
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1442, in get_module
+    return importlib.import_module(modulename)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1017, in get_code
+  File "<frozen importlib._bootstrap_external>", line 947, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe_new/frappe_new/hooks.py", line 68
+    Z:\frappe-next-pagenew\apps\frappe_new\frappe_new\www\home_work.html
+       ^
+SyntaxError: unexpected character after line continuation character
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/error.py", line 86, in log_error_snapshot
+    log_error(title=str(exception), defer_insert=True)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/error.py", line 61, in log_error
+    error_log = frappe.get_doc(
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1305, in get_doc
+    return frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/document.py", line 83, in get_doc
+    controller = get_controller(doctype)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/base_document.py", line 67, in get_controller
+    return import_controller(doctype)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/base_document.py", line 89, in import_controller
+    class_overrides = frappe.get_hooks("override_doctype_class")
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1607, in get_hooks
+    hooks = _dict(_load_app_hooks())
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/caching.py", line 59, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1576, in _load_app_hooks
+    app_hooks = get_module(f"{app}.hooks")
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1442, in get_module
+    return importlib.import_module(modulename)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1017, in get_code
+  File "<frozen importlib._bootstrap_external>", line 947, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe_new/frappe_new/hooks.py", line 68
+    Z:\frappe-next-pagenew\apps\frappe_new\frappe_new\www\home_work.html
+       ^
+SyntaxError: unexpected character after line continuation character
+2025-06-11 11:00:09,102 ERROR frappe Failed to run after request hook
+Site: imransite
+Form Dict: {'routes': '[{"creation":"2025-06-11 16:30:24","route":"Workspaces/Users"}]'}
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/app.py", line 147, in application
+    run_after_request_hooks(request, response)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/app.py", line 162, in run_after_request_hooks
+    for after_request_task in frappe.get_hooks("after_request"):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1607, in get_hooks
+    hooks = _dict(_load_app_hooks())
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/caching.py", line 59, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1576, in _load_app_hooks
+    app_hooks = get_module(f"{app}.hooks")
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1442, in get_module
+    return importlib.import_module(modulename)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1017, in get_code
+  File "<frozen importlib._bootstrap_external>", line 947, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe_new/frappe_new/hooks.py", line 68
+    Z:\frappe-next-pagenew\apps\frappe_new\frappe_new\www\home_work.html
+       ^
+SyntaxError: unexpected character after line continuation character
+2025-06-11 12:05:30,391 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {}
+2025-06-11 13:52:24,853 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'student_id': '1020U09036', 'student_name': 'H.Hari', 'month': 'May', 'cmd': 'frappe_new.frappe_new_title.doctype.student_fee_pay.student_fee_pay.pre_pay_registor_student'}
+2025-06-11 13:52:42,692 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'student_id': '1020U09036', 'student_name': 'H.Hari', 'month': 'May', 'cmd': 'frappe_new.frappe_new_title.doctype.student_fee_pay.student_fee_pay.pre_pay_registor_student'}
+2025-06-11 13:56:08,318 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'student_id': '1020U09036', 'student_name': 'H.Hari', 'month': 'May', 'cmd': 'frappe_new.frappe_new_title.doctype.student_fee_pay.student_fee_pay.pre_pay_registor_student'}
+2025-06-12 06:06:25,893 ERROR frappe Could not take error snapshot: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+Site: imransite
+Form Dict: {'doctype': 'Move', 'fields': '["`tabMove`.`name`","`tabMove`.`owner`","`tabMove`.`creation`","`tabMove`.`modified`","`tabMove`.`modified_by`","`tabMove`.`_user_tags`","`tabMove`.`_comments`","`tabMove`.`_assign`","`tabMove`.`_liked_by`","`tabMove`.`docstatus`","`tabMove`.`idx`","`tabMove`.`genre`"]', 'filters': '[]', 'order_by': '`tabMove`.`modified` desc', 'start': '0', 'page_length': '20', 'view': 'List', 'group_by': '', 'with_comment_count': '1', 'cmd': 'frappe.desk.reportview.get'}
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 649, in connect
+    sock = socket.create_connection(
+  File "/usr/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/usr/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/app.py", line 115, in application
+    response = frappe.api.handle(request)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/api/__init__.py", line 49, in handle
+    data = endpoint(**arguments)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/api/v1.py", line 36, in handle_rpc_call
+    return frappe.handler.handle()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/handler.py", line 51, in handle
+    data = execute_cmd(cmd)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/handler.py", line 84, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1742, in call
+    return fn(*args, **newargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/typing_validations.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 888, in wrapper_fn
+    retval = fn(*args, **get_newargs(fn, kwargs))
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/desk/reportview.py", line 34, in get
+    data = compress(execute(**args), args=args)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/desk/reportview.py", line 80, in execute
+    return DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/db_query.py", line 191, in execute
+    result = self.build_and_run()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/db_query.py", line 232, in build_and_run
+    return frappe.db.sql(
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 207, in sql
+    self.connect()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 112, in connect
+    self._conn: "MariadbConnection" | "PostgresConnection" = self.get_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 108, in get_connection
+    conn = self._get_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 114, in _get_connection
+    return self.create_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 117, in create_connection
+    return pymysql.connect(**self.get_connection_settings())
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 716, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 649, in connect
+    sock = socket.create_connection(
+  File "/usr/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/usr/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/error.py", line 86, in log_error_snapshot
+    log_error(title=str(exception), defer_insert=True)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/utils/error.py", line 61, in log_error
+    error_log = frappe.get_doc(
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/__init__.py", line 1305, in get_doc
+    return frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/document.py", line 83, in get_doc
+    controller = get_controller(doctype)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/base_document.py", line 67, in get_controller
+    return import_controller(doctype)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/model/base_document.py", line 82, in import_controller
+    doctype_info = frappe.db.get_value("DocType", doctype, ("module", "custom", "is_tree"), as_dict=True)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 515, in get_value
+    result = self.get_values(
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 619, in get_values
+    out = self._get_values_from_table(
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 892, in _get_values_from_table
+    return query.run(as_dict=as_dict, debug=debug, update=update, run=run, pluck=pluck)
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/query_builder/utils.py", line 87, in execute_query
+    result = frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 207, in sql
+    self.connect()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/database.py", line 112, in connect
+    self._conn: "MariadbConnection" | "PostgresConnection" = self.get_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 108, in get_connection
+    conn = self._get_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 114, in _get_connection
+    return self.create_connection()
+  File "/home/server-admin/frappe-next-pagenew/apps/frappe/frappe/database/mariadb/database.py", line 117, in create_connection
+    return pymysql.connect(**self.get_connection_settings())
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/home/server-admin/frappe-next-pagenew/env/lib/python3.10/site-packages/pymysql/connections.py", line 716, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+2025-06-12 07:31:47,161 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'name': 'imran-page', 'cmd': 'frappe.desk.desk_page.getpage'}
+2025-06-12 11:17:33,653 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.show_restaurants'}
+2025-06-12 11:18:27,696 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.show_restaurants'}
+2025-06-12 11:52:38,215 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.show_restaurants'}
+2025-06-12 11:53:44,354 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.show_restaurants'}
+2025-06-12 11:55:59,849 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.show_restaurants'}
+2025-06-13 09:20:52,355 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'report_name': 'Student Fee Summary Report', 'filters': '', 'ignore_prepared_report': '1', 'cmd': 'frappe.desk.query_report.run'}
+2025-06-16 08:03:15,495 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'data_import': 'Driver List Import on 2025-06-16 13:28:13.098091', 'google_sheets_url': 'https://docs.google.com/spreadsheets/d/17ZN9bg-7sh_whNklRH1LG9OGEqLJws7dY3xOdvsBLwE/edit?pli=1&gid=0#gid=0', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-06-16 08:03:30,030 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'data_import': 'Driver List Import on 2025-06-16 13:28:13.098091', 'google_sheets_url': 'https://docs.google.com/spreadsheets/d/17ZN9bg-7sh_whNklRH1LG9OGEqLJws7dY3xOdvsBLwE/edit?pli=1&gid=0#gid=0', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-06-16 08:03:59,623 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'data_import': 'Driver List Import on 2025-06-16 13:28:13.098091', 'import_file': '/private/files/Untitled spreadsheet - Sheet1.csv', 'google_sheets_url': 'https://docs.google.com/spreadsheets/d/17ZN9bg-7sh_whNklRH1LG9OGEqLJws7dY3xOdvsBLwE/edit?pli=1&gid=0#gid=0', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-06-16 08:04:00,089 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doc': '{"name":"Driver List Import on 2025-06-16 13:28:13.098091","owner":"Administrator","creation":"2025-06-16 13:28:13.098091","modified":"2025-06-16 13:33:24.762875","modified_by":"Administrator","docstatus":0,"idx":0,"reference_doctype":"Driver List","import_type":"Insert New Records","payload_count":0,"google_sheets_url":"https://docs.google.com/spreadsheets/d/17ZN9bg-7sh_whNklRH1LG9OGEqLJws7dY3xOdvsBLwE/edit?pli=1&gid=0#gid=0","status":"Error","submit_after_import":0,"mute_emails":1,"template_options":"","template_warnings":"","show_failed_logs":0,"doctype":"Data Import","__last_sync_on":"2025-06-16T08:04:07.652Z","import_file":"/private/files/Untitled spreadsheet - Sheet1.csv","__unsaved":1}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-16 08:04:05,328 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doc': '{"name":"Driver List Import on 2025-06-16 13:28:13.098091","owner":"Administrator","creation":"2025-06-16 13:28:13.098091","modified":"2025-06-16 13:33:24.762875","modified_by":"Administrator","docstatus":0,"idx":0,"reference_doctype":"Driver List","import_type":"Insert New Records","payload_count":0,"google_sheets_url":"https://docs.google.com/spreadsheets/d/17ZN9bg-7sh_whNklRH1LG9OGEqLJws7dY3xOdvsBLwE/edit?pli=1&gid=0#gid=0","status":"Error","submit_after_import":0,"mute_emails":1,"template_options":"","template_warnings":"","show_failed_logs":0,"doctype":"Data Import","__last_sync_on":"2025-06-16T08:04:07.652Z","import_file":"/private/files/Untitled spreadsheet - Sheet1.csv","__unsaved":1}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-16 08:15:32,876 ERROR frappe Error while inserting deferred Error Log record: Error Log ejglrsjd0n: 'Title' (401 Client Error: Unauthorized for url: https://docs.google.com/spreadsheets/d/17ZN9bg-7sh_whNklRH1LG9OGEqLJws7dY3xOdvsBLwE/export?format=csv&gid=0) will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-16 08:15:32,878 ERROR frappe Error while inserting deferred Error Log record: Error Log ejgbrcdsh5: 'Title' (401 Client Error: Unauthorized for url: https://docs.google.com/spreadsheets/d/17ZN9bg-7sh_whNklRH1LG9OGEqLJws7dY3xOdvsBLwE/export?format=csv&gid=0) will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-16 08:15:32,881 ERROR frappe Error while inserting deferred Error Log record: Error Log ejgfo259b1: 'Title' (401 Client Error: Unauthorized for url: https://docs.google.com/spreadsheets/d/17ZN9bg-7sh_whNklRH1LG9OGEqLJws7dY3xOdvsBLwE/export?format=csv&gid=0) will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-16 08:15:32,883 ERROR frappe Error while inserting deferred Error Log record: Error Log ejg2btkr44: 'Title' (401 Client Error: Unauthorized for url: https://docs.google.com/spreadsheets/d/17ZN9bg-7sh_whNklRH1LG9OGEqLJws7dY3xOdvsBLwE/export?format=csv&gid=0) will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-16 08:15:32,885 ERROR frappe Error while inserting deferred Error Log record: Error Log ejgqvbsb2d: 'Title' (401 Client Error: Unauthorized for url: https://docs.google.com/spreadsheets/d/17ZN9bg-7sh_whNklRH1LG9OGEqLJws7dY3xOdvsBLwE/export?format=csv&gid=0) will get truncated, as max characters allowed is 140
+Site: imransite
+Form Dict: {}
+2025-06-16 13:44:09,182 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'restaurant_name': 'Paradise Arabic Food', 'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.get_restaurant_with_foods'}
+2025-06-17 13:48:44,243 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'restaurant_name': 'Arabian Sepcial Mandi', 'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.get_restaurant_with_foods'}
+2025-06-17 13:49:43,065 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'restaurant_name': 'Arabian Sepcial Mandi', 'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.get_restaurant_with_foods'}
+2025-06-17 13:49:47,235 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'restaurant_name': 'Arabian Sepcial Mandi', 'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.get_restaurant_with_foods'}
+2025-06-17 13:55:55,428 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'restaurant_name': 'Arabian Sepcial Mandi', 'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.get_restaurant_with_foods'}
+2025-06-17 13:58:15,581 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'restaurant_name': 'Paradise Arabic Food', 'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.get_restaurant_with_foods'}
+2025-06-17 14:03:15,564 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'restaurant_name': 'Arabian Sepcial Mandi', 'cmd': 'frappe_new.frappe_new_title.doctype.halal_restaurant_details.halal_restaurant_details.get_restaurant_with_foods'}
+2025-06-24 13:22:55,612 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doctype': 'Class Records', 'with_parent': '1', 'cached_timestamp': '', 'cmd': 'frappe.desk.form.load.getdoctype'}
+2025-06-24 13:42:53,967 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doctype': 'Class Records', 'with_parent': '1', 'cached_timestamp': '2025-06-24 18:46:05.071617', 'cmd': 'frappe.desk.form.load.getdoctype'}
+2025-06-24 13:43:26,260 ERROR frappe New Exception collected in error log
+Site: imransite
+Form Dict: {'doctype': 'Class Records', 'with_parent': '1', 'cached_timestamp': '2025-06-24 18:46:05.071617', 'cmd': 'frappe.desk.form.load.getdoctype'}

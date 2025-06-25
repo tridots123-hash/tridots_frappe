@@ -1,0 +1,21 @@
+{
+ "background_workers": 1,
+ "default_site": "imransite",
+ "developer_mode": true,
+ "file_watcher_port": 6801,
+ "frappe_user": "server-admin",
+ "gunicorn_workers": 9,
+ "live_reload": true,
+ "rebase_on_pull": false,
+ "redis_cache": "redis://127.0.0.1:13014",
+ "redis_queue": "redis://127.0.0.1:11014",
+ "redis_socketio": "redis://127.0.0.1:13014",
+ "restart_supervisor_on_update": true,
+ "restart_systemd_on_update": false,
+ "serve_default_site": true,
+ "server_script_enabled": 1,
+ "shallow_clone": true,
+ "socketio_port": 9014,
+ "use_redis_auth": false,
+ "webserver_port": 8014
+}
