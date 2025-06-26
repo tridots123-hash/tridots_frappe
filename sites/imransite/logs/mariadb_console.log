@@ -64,3 +64,5 @@ select\040*\040from\040`tabHalal\040Food\040List`;
 select\040*\040from\040`tabClass\040Record`;
 select\040*\040from\040`tabClass\040Records`;
 select\040*\040from\040`tabUser`;
+select\040*\040from\040`tabClass\040Records`;
+select\040*\040from\040`tabSubjects`;
